@@ -261,6 +261,156 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">5. Pertanyaan Communicativeness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="communicativeness4"
+                                id="communicativeness4" onchange="myfunction4()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Communicativeness'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot4" name="bobot4" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_communicative4"
+                                        name="avg_communicative4" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_communicative4()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_communicative4"
+                                        name="wncn_communicative4" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">6. Pertanyaan Communicativeness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="communicativeness5"
+                                id="communicativeness5" onchange="myfunction5()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Communicativeness'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot5" name="bobot5" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_communicative5"
+                                        name="avg_communicative5" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_communicative5()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_communicative5"
+                                        name="wncn_communicative5" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">7. Pertanyaan Communicativeness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="communicativeness6"
+                                id="communicativeness6" onchange="myfunction6()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Communicativeness'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot6" name="bobot6" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_communicative6"
+                                        name="avg_communicative6" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_communicative6()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_communicative6"
+                                        name="wncn_communicative6" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                     <div class="mb-3 row">
                         <button type="button" class="col-sm-2 col-btn btn-success"
@@ -275,7 +425,7 @@
                         <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Operability</label>
                         <div class="col-sm-10">
                             <select name="pertanyaan_efficiency" class="form-control" name="operability"
-                                id="operability" onchange="myfunction4()">
+                                id="operability" onchange="myfunction7()">
                                 <option value="">- Pilih -</option>
                                 <?php
                                         include '/../../../model/koneksi.php';
@@ -295,7 +445,7 @@
                             <div class="col">
                                 <label for="" class="form-label">Bobot</label>
                                 <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot4" name="bobot4" value=""
+                                    <input type="text" class="form-control col-md-3" id="bobot7" name="bobot7" value=""
                                         readonly>
                                 </div>
                             </div>
@@ -325,7 +475,7 @@
                         <label for="" class="col-sm-2 col-form-label">2. Pertanyaan Operability</label>
                         <div class="col-sm-10">
                             <select name="pertanyaan_efficiency" class="form-control" name="operability1"
-                                id="operability1" onchange="myfunction5()">
+                                id="operability1" onchange="myfunction8()">
                                 <option value="">- Pilih -</option>
                                 <?php
                                     include '/../../../model/koneksi.php';
@@ -345,7 +495,7 @@
                             <div class="col">
                                 <label for="" class="form-label">Bobot</label>
                                 <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot5" name="bobot5" value=""
+                                    <input type="text" class="form-control col-md-3" id="bobot8" name="bobot8" value=""
                                         readonly>
                                 </div>
                             </div>
@@ -375,7 +525,7 @@
                         <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Operability</label>
                         <div class="col-sm-10">
                             <select name="pertanyaan_efficiency" class="form-control" name="operability2"
-                                id="operability2" onchange="myfunction6()">
+                                id="operability2" onchange="myfunction9()">
                                 <option value="">- Pilih -</option>
                                 <?php
                                     include '/../../../model/koneksi.php';
@@ -395,7 +545,7 @@
                             <div class="col">
                                 <label for="" class="form-label">Bobot</label>
                                 <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot6" name="bobot6" value=""
+                                    <input type="text" class="form-control col-md-3" id="bobot9" name="bobot9" value=""
                                         readonly>
                                 </div>
                             </div>
@@ -421,6 +571,57 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">4. Pertanyaan Operability</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="operability3"
+                                id="operability3" onchange="myfunction10()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Operability'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot10" name="bobot10" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_operability3"
+                                        name="avg_operability3" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_operability3()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_operability3"
+                                        name="wncn_operability3" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                     <div class="mb-3 row">
                         <button type="button" class="col-sm-2 col-btn btn-success"
@@ -435,7 +636,7 @@
                         <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Training</label>
                         <div class="col-sm-10">
                             <select name="pertanyaan_efficiency" class="form-control" name="traning" id="traning"
-                                onchange="myfunction7()">
+                                onchange="myfunction11()">
                                 <option value="">- Pilih -</option>
                                 <?php
                                     include '/../../../model/koneksi.php';
@@ -455,7 +656,7 @@
                             <div class="col">
                                 <label for="" class="form-label">Bobot</label>
                                 <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot7" name="bobot7" value=""
+                                    <input type="text" class="form-control col-md-3" id="bobot11" name="bobot11" value=""
                                         readonly>
                                 </div>
                             </div>
@@ -481,6 +682,357 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">2. Pertanyaan Training</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="traning1" id="traning1"
+                                onchange="myfunction12()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Training'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot12" name="bobot12" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_traning1" name="avg_traning1"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_training1()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_traning1"
+                                        name="wncn_traning1" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Training</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="traning2" id="traning2"
+                                onchange="myfunction13()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Training'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot13" name="bobot13" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_traning2" name="avg_traning2"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_training2()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_traning2"
+                                        name="wncn_traning2" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">4. Pertanyaan Training</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="traning3" id="traning3"
+                                onchange="myfunction14()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Training'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot14" name="bobot14" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_traning3" name="avg_traning3"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_training3()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_traning3"
+                                        name="wncn_traning3" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">5. Pertanyaan Training</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="traning4" id="traning4"
+                                onchange="myfunction15()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Training'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot15" name="bobot15" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_traning4" name="avg_traning4"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_training4()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_traning4"
+                                        name="wncn_traning4" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">6. Pertanyaan Training</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="traning5" id="traning5"
+                                onchange="myfunction16()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Training'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot16" name="bobot16" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_traning5" name="avg_traning5"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_training5()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_traning5"
+                                        name="wncn_traning5" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">7. Pertanyaan Training</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="traning6" id="traning6"
+                                onchange="myfunction17()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Training'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot17" name="bobot17" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_traning6" name="avg_traning6"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_training6()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_traning6"
+                                        name="wncn_traning6" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">8. Pertanyaan Training</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="traning7" id="traning7"
+                                onchange="myfunction18()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                    include '/../../../model/koneksi.php';
+
+                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Training'");
+                                    if (mysqli_num_rows($query)>0) {
+
+                                        while($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot18" name="bobot18" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_traning7" name="avg_traning7"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_training7()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_traning7"
+                                        name="wncn_traning7" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <hr>
                     <div class="mb-3 row">
                         <button type="button" class="col-sm-2 col-btn btn-success" onclick="hasil_akhirtraining()">Hasil
@@ -600,13 +1152,40 @@
 
     }
 
+    function hasil_communicative4() {
+        var bobot = $('#bobot4').val();
+        var avg = $('#avg_communicative4').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_communicative4").val(hasil);
+
+    }
+
+    function hasil_communicative5() {
+        var bobot = $('#bobot5').val();
+        var avg = $('#avg_communicative5').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_communicative5").val(hasil);
+
+    }
+
+    function hasil_communicative6() {
+        var bobot = $('#bobot6').val();
+        var avg = $('#avg_communicative6').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_communicative6").val(hasil);
+
+    }
+
 
     function hasil_akhircommunicative() {
         var hasil1 = $('#wncn_communicative').val();
         var hasil2 = $('#wncn_communicative1').val();
         var hasil3 = $('#wncn_communicative2').val();
         var hasil4 = $('#wncn_communicative3').val();
-        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4);
+        var hasil5 = $('#wncn_communicative4').val();
+        var hasil6 = $('#wncn_communicative5').val();
+        var hasil7 = $('#wncn_communicative6').val();
+        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4) + Number(hasil5) + Number(hasil6) + Number(hasil7);
         $('#hasilnya').val(ketemu.toFixed(2));
     }
 
@@ -614,7 +1193,7 @@
 
 
     function hasil_operability() {
-        var bobot = $('#bobot4').val();
+        var bobot = $('#bobot7').val();
         var avg = $('#avg_operability').val();
         var hasil = (bobot * avg).toFixed(2);
         $("#wncn_operability").val(hasil);
@@ -622,7 +1201,7 @@
     }
 
     function hasil_operability1() {
-        var bobot = $('#bobot5').val();
+        var bobot = $('#bobot8').val();
         var avg = $('#avg_operability1').val();
         var hasil = (bobot * avg).toFixed(2);
         $("#wncn_operability1").val(hasil);
@@ -630,10 +1209,18 @@
     }
 
     function hasil_operability2() {
-        var bobot = $('#bobot6').val();
+        var bobot = $('#bobot9').val();
         var avg = $('#avg_operability2').val();
         var hasil = (bobot * avg).toFixed(2);
         $("#wncn_operability2").val(hasil);
+
+    }
+
+    function hasil_operability3() {
+        var bobot = $('#bobot10').val();
+        var avg = $('#avg_operability3').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_operability3").val(hasil);
 
     }
 
@@ -642,21 +1229,75 @@
         var hasil1 = $('#wncn_operability').val();
         var hasil2 = $('#wncn_operability1').val();
         var hasil3 = $('#wncn_operability2').val();
-        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3);
+        var hasil4 = $('#wncn_operability3').val();
+        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4);
         $('#hasilakhoperability').val(ketemu.toFixed(2));
     }
 
 
     function hasil_training() {
-        var bobot = $('#bobot5').val();
+        var bobot = $('#bobot11').val();
         var avg = $('#avg_traning').val();
         var hasil = (bobot * avg).toFixed(2);
         $("#wncn_traning").val(hasil);
     }
 
+    function hasil_training1() {
+        var bobot = $('#bobot12').val();
+        var avg = $('#avg_traning1').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_traning1").val(hasil);
+    }
+    function hasil_training2() {
+        var bobot = $('#bobot13').val();
+        var avg = $('#avg_traning2').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_traning2").val(hasil);
+    }
+    function hasil_training3() {
+        var bobot = $('#bobot14').val();
+        var avg = $('#avg_traning3').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_traning3").val(hasil);
+    }
+    function hasil_training4() {
+        var bobot = $('#bobot15').val();
+        var avg = $('#avg_traning4').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_traning4").val(hasil);
+    }
+    function hasil_training5() {
+        var bobot = $('#bobot16').val();
+        var avg = $('#avg_traning5').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_traning5").val(hasil);
+    }
+    function hasil_training6() {
+        var bobot = $('#bobot17').val();
+        var avg = $('#avg_traning6').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_traning6").val(hasil);
+    }
+    function hasil_training7() {
+        var bobot = $('#bobot18').val();
+        var avg = $('#avg_traning7').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_traning7").val(hasil);
+    }
+
+
+
+
     function hasil_akhirtraining() {
         var hasil1 = $('#wncn_traning').val();
-        var ketemu = Number(hasil1) * 1;
+        var hasil2 = $('#wncn_traning1').val();
+        var hasil3 = $('#wncn_traning2').val();
+        var hasil4 = $('#wncn_traning3').val();
+        var hasil5 = $('#wncn_traning4').val();
+        var hasil6 = $('#wncn_traning5').val();
+        var hasil7 = $('#wncn_traning6').val();
+        var hasil8 = $('#wncn_traning7').val();
+        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4) + Number(hasil5) + Number(hasil6) + Number(hasil7) + Number(hasil8);
         $('#hasilakhtraning').val(ketemu.toFixed(2));
     }
 
@@ -764,10 +1405,8 @@
 
     }
 
-
-
     function myfunction4() {
-        var x = $('#operability').val();
+        var x = $('#communicativeness4').val();
 
         $.post(
             "pages/inputform/ganti.php", {
@@ -782,8 +1421,9 @@
 
     }
 
+
     function myfunction5() {
-        var x = $('#operability1').val();
+        var x = $('#communicativeness5').val();
 
         $.post(
             "pages/inputform/ganti.php", {
@@ -798,8 +1438,9 @@
 
     }
 
+
     function myfunction6() {
-        var x = $('#operability2').val();
+        var x = $('#communicativeness6').val();
 
         $.post(
             "pages/inputform/ganti.php", {
@@ -816,8 +1457,9 @@
 
 
 
+
     function myfunction7() {
-        var x = $('#traning').val();
+        var x = $('#operability').val();
 
         $.post(
             "pages/inputform/ganti.php", {
@@ -827,6 +1469,176 @@
                 result = JSON.parse(result)
                 console.log(result)
                 $('#bobot7').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction8() {
+        var x = $('#operability1').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot8').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction9() {
+        var x = $('#operability2').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot9').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction10() {
+        var x = $('#operability3').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot10').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction11() {
+        var x = $('#traning').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot11').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction12() {
+        var x = $('#traning1').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot12').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+    function myfunction13() {
+        var x = $('#traning2').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot13').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+    function myfunction14() {
+        var x = $('#traning3').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot14').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+    function myfunction15() {
+        var x = $('#traning4').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot15').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+    function myfunction16() {
+        var x = $('#traning5').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot16').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+    function myfunction17() {
+        var x = $('#traning6').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot17').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+    function myfunction18() {
+        var x = $('#traning7').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot18').val(result.bobot_pertanyaan);
             }
         );
 

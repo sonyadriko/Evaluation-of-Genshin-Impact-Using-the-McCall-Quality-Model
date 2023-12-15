@@ -161,6 +161,107 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Security</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="integrity2" id="integrity2"
+                                onchange="myfunction2()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                include '/../../../model/koneksi.php';
+
+                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Security'");
+                                if (mysqli_num_rows($query)>0) {
+
+                                    while($data = mysqli_fetch_array($query)) {
+                                        ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot2" name="bobot2" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_integrity2"
+                                        name="avg_integrity2" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_integrity2()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_integriy2"
+                                        name="wncn_integriy2" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">4. Pertanyaan Security</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="integrity3" id="integrity3"
+                                onchange="myfunction3()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                include '/../../../model/koneksi.php';
+
+                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Security'");
+                                if (mysqli_num_rows($query)>0) {
+
+                                    while($data = mysqli_fetch_array($query)) {
+                                        ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot3" name="bobot3" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_integrity3"
+                                        name="avg_integrity3" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_integrity3()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_integriy3"
+                                        name="wncn_integriy3" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                     <div class="mb-3 row">
                         <button type="button" class="col-sm-2 col-btn btn-success"
@@ -262,11 +363,26 @@
         $("#wncn_integriy1").val(hasil);
     }
 
+    function hasil_integrity2() {
+        var bobot = $('#bobot2').val();
+        var avg = $('#avg_integrity2').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_integriy2").val(hasil);
+    }
+
+    function hasil_integrity3() {
+        var bobot = $('#bobot3').val();
+        var avg = $('#avg_integrity3').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_integriy3").val(hasil);
+    }
 
     function hasil_akhirintegrity() {
         var hasil1 = $('#wncn_integriy').val();
         var hasil2 = $('#wncn_integriy1').val();
-        var ketemu = Number(hasil1) + Number(hasil2);
+        var hasil3 = $('#wncn_integriy2').val();
+        var hasil4 = $('#wncn_integriy3').val();
+        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4);
         $('#hasilnya').val(ketemu.toFixed(2));
     }
 
@@ -335,6 +451,38 @@
                 result = JSON.parse(result)
                 console.log(result)
                 $('#bobot1').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction2() {
+        var x = $('#integrity2').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot2').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction3() {
+        var x = $('#integrity3').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot3').val(result.bobot_pertanyaan);
             }
         );
 
