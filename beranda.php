@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_beranda.css">
+    <title>McCALL</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#hero">
+                        <h1><span>Ir</span>man<span>syah</span></h1>
+                    </a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul>
+                        <li><a href="#hero" data-after="Home">Home</a></li>
+                        <li><a href="#services" data-after="About">Mccall</a></li>
+                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                        <li><a href="login.php" data-after="Login">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Header -->
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero container">
+            <div>
+                <h1>Software Quality<span></span></h1>
+                <h1>Metode McCALL<span></span></h1>
+                <a href="#about" type="button" class="cta">Profil</a>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="services container">
+            <div class="service-top">
+                <h1 class="section-title">Mc<span>call</span></h1>
+                <p>Metode McCall merupakan salah satu model yang menjelaskan Software Quality Factor atau kualitas
+                    perangkat lunak.
+                    Model ini memiliki tiga perspektif utama yaitu product operation (sifat-sifat operasional dari
+                    software),
+                    product revision (kemampuan software dalam menjalani perubahan), dan product transition (daya
+                    adaptasi software terhadap lingkungan baru).
+                    Product operation meliputi beberapa faktor yaitu correctness, reliability, usability, integrity, dan
+                    usability.
+                    Metode ini memuat kriteria atau faktor kualitas perangkat lunak paling lengkap. Karena metode McCall
+                    memiliki ketelitian
+                    dan rincian yang baik sehingga dapat digunakan untuk menguji dan menjamin kualitas perangkat lunak
+                    sistem informasi.</p>
+            </div>
+            <div class="service-bottom">
+                <div class="service-item">
+                    <div class="icon"><img src="https://img.icons8.com/wired/64/000000/bookmark--v1.png" /></div>
+                    <h2>Sistem Penilaian :</h2>
+                    <ul>
+                        <p>Kriteria yang digunakan untuk mengukur suatu faktor :</p>
+                        <li>
+                            <p>Menentukan bobot (w) berdasarkankepentingan.</p>
+                        </li>
+                        <li>
+                            <p>Menentukan skala nilai kriteria.</p>
+                        </li>
+                        <li>
+                            <p>Memasukkan nilai pada tiap kriteria.</p>
+                        </li>
+                        <li>
+                            <p>Menghitung nilai total dengan rumus pada persamaan.</p>
+                        </li>
+                        <li>
+                            <p>Kemudian nilai Quality Factor diubah dalam bentuk persentase (%).</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <div class="icon"><img src="https://img.icons8.com/wired/64/000000/bookmark--v1.png" /></div>
+                    <h2>Faktor-faktor McCall,</h2>
+                    <ul>
+                        <p> Yang berkaitan dengan sifat-sifat operasional software :</p>
+                        <li>
+                            <p>Correctness (Completeness,Consistency,Traceability)</p>
+                        </li>
+                        <li>
+                            <p>Reliability (Accuracy,Error Tolerancy,Simplicity)</p>
+                        </li>
+                        <li>
+                            <p>Efficiency (Execution Efficiency)</p>
+                        </li>
+                        <li>
+                            <p>Integrity (Security)</p>
+                        </li>
+                        <li>
+                            <p>Usability (Communicativeness,Operability,Training)</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </section>
+    <!-- End Section Services -->
+
+    <!-- About Section -->
+    <!-- <section id="about">
+        <div class="about container">
+            <div class="col-left">
+                <div class="about-img">
+                    <img src="./asset/dist/img/logo8.png" alt="img">
+                </div>
+            </div>
+            <div class="col-right">
+                <h1 class="section-title">About <span>me</span></h1>
+                <h2>----------------------------------------------------</h2>
+                <h2>IRMANSYAH</h2>
+                <h2>18101152610173</h2>
+                <h2>Program Studi Sistem Informasi</h2>
+                <h2>Fakultas Ilmu Komputer</h2>
+                <h2>Universitas Putra Indonesia "YPTK" Padang</h2>
+                <h2>----------------------------------------------------</h2>
+                <h2>Login dengan,</h2>
+                <h2>Username : ----, Password : ----</h2>
+                <h2>----------------------------------------------------</h2>
+            </div>
+        </div> -->
+    <!-- </section> -->
+    <!-- End About Section -->
+
+    <!-- Contact Section -->
+    <!-- <section id="contact">
+        <div class="contact container">
+            <div>
+                <h1 class="section-title">Contact <span>info</span></h1>
+            </div>
+            <div class="contact-items">
+                <div class="contact-item">
+                    <div class="icon"><img src="https://img.icons8.com/ios/100/000000/apple-phone.png" /></div>
+                    <div class="contact-info">
+                        <h1>Phone</h1>
+                        <h2>081374xxxxxx</h2>
+                        <h2>081374xxxxxx</h2>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon"><img
+                            src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-email-cyber-security-kiranshastry-lineal-kiranshastry-3.png" />
+                    </div>
+                    <div class="contact-info">
+                        <h1>E-mail</h1>
+                        <h2>mansyahi587@gmail.com</h2>
+                        <h2>mansyahi587@gmail.com</h2>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon"><img src="https://img.icons8.com/ios/50/000000/address--v1.png" /></div>
+                    <div class="contact-info">
+                        <h1>Address</h1>
+                        <h2>Padang City, West Sumatera, Indonesia</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- End Contact Section -->
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="footer container">
+            <div class="brand">
+                <h1><span>Ir</span>man<span>syah</span></h1>
+            </div>
+            <h2>Hubungi Media Sosial</h2>
+            <div class="social-icon">
+                <div class="social-item">
+                    <a href="#"><img src="https://img.icons8.com/ios/50/000000/facebook--v2.png" /></a>
+                    <p>Irmansyah12</p>
+                </div>
+                <div class="social-item">
+                    <a href="#"><img
+                            src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-instagram-web-and-social-media-flatart-icons-outline-flatarticons.png" /></a>
+                    <p>Irmansyah126</p>
+                </div>
+                <div class="social-item">
+                    <a href="#"><img src="https://img.icons8.com/dotty/80/000000/telegram-app.png" /></a>
+                    <p>Irmansyah</p>
+                </div>
+                <div class="social-item">
+                    <a href="#"><img src="https://img.icons8.com/ios/50/000000/twitter-squared.png" /></a>
+                    <p>Mansyah</p>
+                </div>
+            </div>
+
+            <p>Terima Kasih Telah Berkunjung</p>
+            <footer>
+                <p>Copyright &copy; 2021-2022, Irmansyah.</p>
+            </footer>
+
+        </div>
+    </section>
+    <!-- End Footer -->
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
