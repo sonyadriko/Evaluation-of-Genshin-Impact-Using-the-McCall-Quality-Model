@@ -320,6 +320,266 @@
                     </div>
                     <hr>
                     <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Conciseness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_accuracy" class="form-control" name="conciseness" id="conciseness"
+                                onchange="myfunction5()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                                    include '/../../../model/koneksi.php';
+
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Conciseness'");
+                                                    if (mysqli_num_rows($query)>0) {
+
+                                                        while($data = mysqli_fetch_array($query)) {
+                                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot5" name="bobot5" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_conciseness" name="avg_conciseness"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_conciseness()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_conciseness" name="wncn_conciseness"
+                                        value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">2. Pertanyaan Conciseness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_accuracy" class="form-control" name="conciseness1" id="conciseness1"
+                                onchange="myfunction6()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                                    include '/../../../model/koneksi.php';
+
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Conciseness'");
+                                                    if (mysqli_num_rows($query)>0) {
+
+                                                        while($data = mysqli_fetch_array($query)) {
+                                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot6" name="bobot6" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_conciseness1" name="avg_conciseness1"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_conciseness1()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_conciseness1" name="wncn_conciseness1"
+                                        value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Conciseness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_accuracy" class="form-control" name="conciseness2" id="conciseness2"
+                                onchange="myfunction7()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                                    include '/../../../model/koneksi.php';
+
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Conciseness'");
+                                                    if (mysqli_num_rows($query)>0) {
+
+                                                        while($data = mysqli_fetch_array($query)) {
+                                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot7" name="bobot7" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_conciseness2" name="avg_conciseness2"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_conciseness2()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_conciseness2" name="wncn_conciseness2"
+                                        value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">4. Pertanyaan Conciseness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_accuracy" class="form-control" name="conciseness3" id="conciseness3"
+                                onchange="myfunction8()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                                    include '/../../../model/koneksi.php';
+
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Conciseness'");
+                                                    if (mysqli_num_rows($query)>0) {
+
+                                                        while($data = mysqli_fetch_array($query)) {
+                                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot8" name="bobot8" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_conciseness3" name="avg_conciseness3"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_conciseness3()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_conciseness3" name="wncn_conciseness3"
+                                        value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">5. Pertanyaan Conciseness</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_accuracy" class="form-control" name="conciseness4" id="conciseness4"
+                                onchange="myfunction9()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                                    include '/../../../model/koneksi.php';
+
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Conciseness'");
+                                                    if (mysqli_num_rows($query)>0) {
+
+                                                        while($data = mysqli_fetch_array($query)) {
+                                                            ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot9" name="bobot9" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_conciseness4" name="avg_conciseness4"
+                                        value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_conciseness4()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_conciseness4" name="wncn_conciseness4"
+                                        value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mb-3 row">
+                        <button type="button" class="col-sm-2 col-btn btn-success"
+                            onclick="hasil_akhirconciseness()">Hasil Conciseness</button>
+                        <div class="col order-5">
+                            <input type="text" class="form-control col-md-1" id="hasilconciseness" name="hasilconciseness"
+                                value="" readonly>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mb-3 row">
                         <button type="button" class="col-sm-2 col-btn btn-success" onclick="hasil_keseluruhan()">Hasil
                             Akhir</button>
                     </div>
@@ -448,6 +708,56 @@
         $('#hasilefficiency').val(ketemu.toFixed(2));
     }
 
+    function hasil_conciseness() {
+        var bobot = $('#bobot5').val();
+        var avg = $('#avg_conciseness').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_conciseness").val(hasil);
+
+    }
+
+    function hasil_conciseness1() {
+        var bobot = $('#bobot6').val();
+        var avg = $('#avg_conciseness1').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_conciseness1").val(hasil);
+
+    }
+
+    function hasil_conciseness2() {
+        var bobot = $('#bobot7').val();
+        var avg = $('#avg_conciseness2').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_conciseness2").val(hasil);
+
+    }
+
+    function hasil_conciseness3() {
+        var bobot = $('#bobot8').val();
+        var avg = $('#avg_conciseness3').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_conciseness3").val(hasil);
+
+    }
+
+    function hasil_conciseness4() {
+        var bobot = $('#bobot9').val();
+        var avg = $('#avg_conciseness4').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_conciseness4").val(hasil);
+
+    }
+
+    // Hasil akhir conciseness
+    function hasil_akhirconciseness() {
+        var hasil1 = $('#wncn_conciseness').val();
+        var hasil2 = $('#wncn_conciseness1').val();
+        var hasil3 = $('#wncn_conciseness2').val();
+        var hasil4 = $('#wncn_conciseness3').val();
+        var hasil5 = $('#wncn_conciseness4').val();
+        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4) + Number(hasil5);
+        $('#hasilconciseness').val(ketemu.toFixed(2));
+    }
 
     // tampil efficiency
     function myfunction() {
@@ -530,12 +840,93 @@
 
     }
 
+    function myfunction5() {
+        var x = $('#conciseness').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot5').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction6() {
+        var x = $('#conciseness1').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot6').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction7() {
+        var x = $('#conciseness2').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot7').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction8() {
+        var x = $('#conciseness3').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot8').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+    function myfunction9() {
+        var x = $('#conciseness4').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot9').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
 
     // total keseluruhan
     function hasil_keseluruhan() {
         var total1 = $('#hasilefficiency').val();
+        var total2 = $('#hasilconciseness').val();
         console.log(total1);
-        var ketemu = ((Number(total1)) / 1);
+        console.log(total2);
+        var ketemu = ((Number(total1) + Number(total2)) / 1);
         console.log(ketemu);
         $("#n_corec").val(ketemu.toFixed(2));
 
