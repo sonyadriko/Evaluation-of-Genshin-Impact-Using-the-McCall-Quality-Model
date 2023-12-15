@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Execution Efficiency</label>
+                        <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Exection Efficiency</label>
                         <div class="col-sm-10">
                             <select name="pertanyaan_efficiency" class="form-control" name="efficiency" id="efficiency"
                                 onchange="myfunction()">
@@ -68,7 +68,7 @@
                                 <?php
                                 include '/../../../model/koneksi.php';
 
-                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Execution Efficiency'");
+                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Exection Efficiency'");
                                 if (mysqli_num_rows($query)>0) {
 
                                     while($data = mysqli_fetch_array($query)) {
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">2. Pertanyaan Execution Efficiency</label>
+                        <label for="" class="col-sm-2 col-form-label">2. Pertanyaan Exection Efficiency</label>
                         <div class="col-sm-10">
                             <select name="pertanyaan_efficiency" class="form-control" name="efficiency" id="efficiency1"
                                 onchange="myfunction1()">
@@ -118,7 +118,7 @@
                                 <?php
                                 include '/../../../model/koneksi.php';
 
-                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Execution Efficiency'");
+                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Exection Efficiency'");
                                 if (mysqli_num_rows($query)>0) {
 
                                     while($data = mysqli_fetch_array($query)) {
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Execution Efficiency</label>
+                        <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Exection Efficiency</label>
                         <div class="col-sm-10">
                             <select name="pertanyaan_efficiency" class="form-control" name="efficiency" id="efficiency2"
                                 onchange="myfunction2()">
@@ -168,7 +168,7 @@
                                 <?php
                                 include '/../../../model/koneksi.php';
 
-                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Execution Efficiency'");
+                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Exection Efficiency'");
                                 if (mysqli_num_rows($query)>0) {
 
                                     while($data = mysqli_fetch_array($query)) {
@@ -205,6 +205,106 @@
                                 <div class="">
                                     <input type="text" class="form-control col-md-3" id="wncn_efficiency2"
                                         name="wncn_efficiency2" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">4. Pertanyaan Exection Efficiency</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="efficiency" id="efficiency3"
+                                onchange="myfunction3()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                include '/../../../model/koneksi.php';
+
+                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Exection Efficiency'");
+                                if (mysqli_num_rows($query)>0) {
+
+                                    while($data = mysqli_fetch_array($query)) {
+                                        ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot3" name="bobot3" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_efficiency3"
+                                        name="avg_efficiency3" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_efficiency3()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_efficiency3"
+                                        name="wncn_efficiency3" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="" class="col-sm-2 col-form-label">5. Pertanyaan Exection Efficiency</label>
+                        <div class="col-sm-10">
+                            <select name="pertanyaan_efficiency" class="form-control" name="efficiency" id="efficiency4"
+                                onchange="myfunction4()">
+                                <option value="">- Pilih -</option>
+                                <?php
+                                include '/../../../model/koneksi.php';
+
+                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Exection Efficiency'");
+                                if (mysqli_num_rows($query)>0) {
+
+                                    while($data = mysqli_fetch_array($query)) {
+                                        ?>
+                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
+                                <?php } } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="" class="form-label">Bobot</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="bobot4" name="bobot4" value=""
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="" class="form-label">Average</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="avg_efficiency4"
+                                        name="avg_efficiency4" value="">
+                                </div>
+                            </div>
+                            <div class="col order-1">
+                                <label for="" class="form-label"></label>
+                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
+                                    onclick="hasil_efficiency4()">
+                                    Hasil</button>
+                            </div>
+                            <div class="col order-5">
+                                <label for="" class="form-label">wncn</label>
+                                <div class="">
+                                    <input type="text" class="form-control col-md-3" id="wncn_efficiency4"
+                                        name="wncn_efficiency4" value="" readonly>
                                 </div>
                             </div>
                         </div>
@@ -318,12 +418,33 @@
 
     }
 
+    
+    function hasil_efficiency3() {
+        var bobot = $('#bobot3').val();
+        var avg = $('#avg_efficiency3').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_efficiency3").val(hasil);
+
+    }
+
+    
+    function hasil_efficiency4() {
+        var bobot = $('#bobot4').val();
+        var avg = $('#avg_efficiency4').val();
+        var hasil = (bobot * avg).toFixed(2);
+        $("#wncn_efficiency4").val(hasil);
+
+    }
+
+
     // Hasil akhir
     function hasil_akhirefficiency() {
         var hasil1 = $('#wncn_efficiency').val();
         var hasil2 = $('#wncn_efficiency1').val();
         var hasil3 = $('#wncn_efficiency2').val();
-        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3);
+        var hasil4 = $('#wncn_efficiency3').val();
+        var hasil5 = $('#wncn_efficiency4').val();
+        var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4) + Number(hasil5);
         $('#hasilefficiency').val(ketemu.toFixed(2));
     }
 
@@ -376,6 +497,39 @@
         );
 
     }
+
+    function myfunction3() {
+        var x = $('#efficiency3').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot3').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
+    function myfunction4() {
+        var x = $('#efficiency4').val();
+
+        $.post(
+            "pages/inputform/ganti.php", {
+                bobot: x
+            },
+            (result) => {
+                result = JSON.parse(result)
+                console.log(result)
+                $('#bobot4').val(result.bobot_pertanyaan);
+            }
+        );
+
+    }
+
 
     // total keseluruhan
     function hasil_keseluruhan() {
