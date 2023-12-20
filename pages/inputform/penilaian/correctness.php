@@ -1307,7 +1307,6 @@
                            </div>
                        </div>
                        <hr>
-
                        <!-- batas -->
                        <div class=" col-12">
                            <input type="submit" name="save" value="Save" class="btn btn-outline-success" />
@@ -1576,8 +1575,9 @@ if(isset($_POST['save'])) {
            console.log(total2);
            console.log(total3);
            var ketemu = ((Number(total1) + Number(total2) + Number(total3)) / 3);
-           console.log(ketemu);
-           $("#n_corec").val(ketemu.toFixed(2));
+           var hasil = Math.min(ketemu, 5);
+           console.log(hasil);
+           $("#n_corec").val(hasil.toFixed(2));
 
            // persentase corectness
            var nilai_dapat = $('#n_corec').val();
