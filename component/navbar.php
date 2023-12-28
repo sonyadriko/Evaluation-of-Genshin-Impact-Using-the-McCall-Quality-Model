@@ -11,14 +11,16 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item">
-            <!-- <a class="breadcrumb-item"><a href="login.php">Logout/
-                <i class="breadcrumb-item active">Keluar</i>
-            </a> -->
+    <?php
+        // Check if the user is logged in (modify this condition based on your authentication logic)
+        $isLoggedIn = isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
 
-            <a href="logout.php" class="btn btn-primary"><i class="fa fa-sign-out-alt"></i> Logout</a>
+        if ($isLoggedIn) {
+            echo '<li class="nav-item">';
+            echo '<a href="logout.php" class="btn btn-primary"><i class="fa fa-sign-out-alt"></i> Logout</a>';
+            echo '</li>';
+        }
+    ?>
+</ul>
 
-        </li>
-    </ul>
 </nav>

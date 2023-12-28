@@ -61,21 +61,20 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
         <table width="100%" border="0" align="center" cellspacing="1" cellpadding="1" class="no-style">
             <tbody>
                 <tr>
-                    <td width="140px"><img src="asset/dist/img/logo8.png" width=" 110" height="110"></td>
+                    <!-- <td width="140px"><img src="asset/dist/img/logo8.png" width=" 110" height="110"></td> -->
                     <td valign="top"><br><br>
                         <center>
-                            <h1 style="color:black;font-size:16px;text-transform:uppercase;">Dinas Kearsipan dan
-                                Perpustakaan Provinsi Sumatera Barat<br>
+                            <h1 style="color:black;font-size:16px;text-transform:uppercase;">MCCALL<br>
                             </h1>
                             <h3 style="font-weight:300;font-size:13px;text-transform:uppercase;">
 
                             </h3>
 
-                            <p><br><span style="color:black;font-size:11px;"> Telp. :</span>
+                            <!-- <p><br><span style="color:black;font-size:11px;"> Telp. :</span>
                                 <span style="color:black;font-size:11px;"> Email : </span>
                                 <span style="color:black;font-size:11px;"> Website : https://dap.sumbarprov.go.id/
                                 </span>
-                            </p>
+                            </p> -->
                     </td>
                     <td width="140px"></td>
                 </tr>
@@ -84,7 +83,7 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
 
         <hr style="margin-top:12px;">
         <center>
-            <h2>Loporan Hasil Pengukuran Sistem Informasi Perpustakaan</h2>
+            <h2>Laporan Hasil Pengukuran </h2>
             <h2>Pengujian : <?php echo $data_hasil['nama_hasil']  ?></h2><br>
         </center>
         <style>
@@ -227,10 +226,6 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
     <br>
     <br>
     <center>
-        <div style="width:40%;  float:right;">Padang, 16-Januari-2022</div><br><br>
-        <div style="width:40%;  float:right;">Mengetahui,</div><br>
-        <div style="width:40%;  float:right;">Kepala Bidang Perpustakaan</div><br><br><br><br><br>
-        <div style="width:40%;  float:right;">(___________________)</div>
     </center>
     <script>
     window.print();

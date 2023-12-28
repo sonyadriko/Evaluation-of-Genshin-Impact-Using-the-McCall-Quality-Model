@@ -22,15 +22,7 @@
                 Efficiency, Integrity, Usability, dan Hasil Akrir)</p>
             <p>- Jngan Lupa, Inputkan nilai masing-masing indikator terlebih dahulu (Dengan nilai rata-rata/Average
                 tiap soal).</p>
-            <!-- <p>- Semoga Bermanfaat dan dapat membantu. :))</p> -->
             <br></br>
-            <!-- <h1 class="section-title">Tentang<span>Saya</span></h1> -->
-            <!-- <p>Hehe</p> -->
-            <!-- <p>Irmansyah</p>
-            <p>18101152610173</p>
-            <p>Program Studi Sistem Informasi</p>
-            <p>Fakultas Ilmu Komputer</p>
-            <p>Universitas Putra Indonesia "YPTK" Padang</p> -->
         </div>
     </div>
 </div>

@@ -114,67 +114,6 @@
     </section>
     <!-- End Section Services -->
 
-    <!-- About Section -->
-    <!-- <section id="about">
-        <div class="about container">
-            <div class="col-left">
-                <div class="about-img">
-                    <img src="./asset/dist/img/logo8.png" alt="img">
-                </div>
-            </div>
-            <div class="col-right">
-                <h1 class="section-title">About <span>me</span></h1>
-                <h2>----------------------------------------------------</h2>
-                <h2>IRMANSYAH</h2>
-                <h2>18101152610173</h2>
-                <h2>Program Studi Sistem Informasi</h2>
-                <h2>Fakultas Ilmu Komputer</h2>
-                <h2>Universitas Putra Indonesia "YPTK" Padang</h2>
-                <h2>----------------------------------------------------</h2>
-                <h2>Login dengan,</h2>
-                <h2>Username : ----, Password : ----</h2>
-                <h2>----------------------------------------------------</h2>
-            </div>
-        </div> -->
-    <!-- </section> -->
-    <!-- End About Section -->
-
-    <!-- Contact Section -->
-    <!-- <section id="contact">
-        <div class="contact container">
-            <div>
-                <h1 class="section-title">Contact <span>info</span></h1>
-            </div>
-            <div class="contact-items">
-                <div class="contact-item">
-                    <div class="icon"><img src="https://img.icons8.com/ios/100/000000/apple-phone.png" /></div>
-                    <div class="contact-info">
-                        <h1>Phone</h1>
-                        <h2>081374xxxxxx</h2>
-                        <h2>081374xxxxxx</h2>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="icon"><img
-                            src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-email-cyber-security-kiranshastry-lineal-kiranshastry-3.png" />
-                    </div>
-                    <div class="contact-info">
-                        <h1>E-mail</h1>
-                        <h2>mansyahi587@gmail.com</h2>
-                        <h2>mansyahi587@gmail.com</h2>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="icon"><img src="https://img.icons8.com/ios/50/000000/address--v1.png" /></div>
-                    <div class="contact-info">
-                        <h1>Address</h1>
-                        <h2>Padang City, West Sumatera, Indonesia</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- End Contact Section -->
 
     <!-- Footer -->
     <section id="footer">
