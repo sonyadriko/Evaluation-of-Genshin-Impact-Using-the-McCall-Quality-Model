@@ -1521,7 +1521,6 @@ if(isset($_POST['save'])) {
 
 
        // perhitungan Treceability
-
        function hasil_Treceability() {
            var bobot6 = $('#bobot18').val();
            var avg = $('#avg_treacebility').val();
@@ -1552,7 +1551,6 @@ if(isset($_POST['save'])) {
            var hasil = (bobot10 * avg).toFixed(2);
            $("#wcnc_consistencyt4").val(hasil);
        }
-
        function hasil_akhirTreceability() {
            var hasil1 = $('#wcnc_consistencyt').val();
            var hasil2 = $('#wcnc_consistencyt1').val();
@@ -1561,10 +1559,7 @@ if(isset($_POST['save'])) {
            var hasil5 = $('#wcnc_consistencyt4').val();
            var ketemu = Number(hasil1) + Number(hasil2) + Number(hasil3) + Number(hasil4) + Number(hasil5);
            $('#hasiltre').val(ketemu.toFixed(2));
-
        }
-
-
        // total Keseluruhan
        function hasil_keseluruhan() {
            // nilai corectnes
@@ -1585,8 +1580,6 @@ if(isset($_POST['save'])) {
            console.log(hasilnya);
            $('#p_corec').val(Math.round(hasilnya));
 
-
-
            if ((hasilnya >= 81) && (hasilnya <= 100)) {
                $('#k_corec').val("Sangat Baik");
            } else if ((hasilnya >= 61) && (hasilnya <= 80)) {
@@ -1602,8 +1595,6 @@ if(isset($_POST['save'])) {
            }
 
        }
-
-
 
        // tampil Completeness
        function myfunction() {
