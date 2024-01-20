@@ -4,8 +4,6 @@
 include "model/koneksi.php";
 if (isset($_GET['uji']) && !empty($_GET['uji'])) {
     $uji = $_GET['uji'];
-
-
     include 'model/koneksi.php';
 
     // $tampil_correctnes = $koneksi->query("SELECT * FROM glue INNER JOIN correctness ON correctness.id_correctness=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='correctness' order by glue.id LIMIT 1");
@@ -56,12 +54,10 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
 </head>
 
 <body>
-
     <center>
         <table width="100%" border="0" align="center" cellspacing="1" cellpadding="1" class="no-style">
             <tbody>
                 <tr>
-                    <!-- <td width="140px"><img src="asset/dist/img/logo8.png" width=" 110" height="110"></td> -->
                     <td valign="top"><br><br>
                         <center>
                             <h1 style="color:black;font-size:16px;text-transform:uppercase;">MCCALL<br>
@@ -69,18 +65,11 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
                             <h3 style="font-weight:300;font-size:13px;text-transform:uppercase;">
 
                             </h3>
-
-                            <!-- <p><br><span style="color:black;font-size:11px;"> Telp. :</span>
-                                <span style="color:black;font-size:11px;"> Email : </span>
-                                <span style="color:black;font-size:11px;"> Website : https://dap.sumbarprov.go.id/
-                                </span>
-                            </p> -->
                     </td>
                     <td width="140px"></td>
                 </tr>
             </tbody>
         </table>
-
         <hr style="margin-top:12px;">
         <center>
             <h2>Laporan Hasil Pengukuran </h2>
@@ -91,13 +80,11 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
             border-collapse: collapse;
             width: 100%;
         }
-
         .table th {
             padding: 8px 8px;
             border: 1px solid #000000;
             text-align: center;
         }
-
         .table td {
             padding: 3px 3px;
             border: 1px solid #000000;
@@ -152,33 +139,23 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
 
                }
            ?></td> -->
-
                 </tr>
-
                 <tr class="odd">
-
                     <td class=" " align="center"><?php echo $data_correctness['persentase'] ?>%</td>
                     <td class=" " align="center"><?php echo $data_reliability['persentase'] ?>%</td>
                     <td class=" " align="center"><?php echo $data_efficiency['persentase'] ?>%</td>
                     <td class=" " align="center"><?php echo $data_integrity['persentase'] ?>%</td>
                     <td class=" " align="center"><?php echo $data_usability['persentase'] ?>%</td>
-
                 <tr>
-
                 <tr class="odd">
-
                     <td class=" " align="center"><?php echo $data_correctness['kategori'] ?> </td>
                     <td class=" " align="center"><?php echo $data_reliability['kategori'] ?> </td>
                     <td class=" " align="center"><?php echo $data_efficiency['kategori'] ?> </td>
                     <td class=" " align="center"><?php echo $data_integrity['kategori'] ?> </td>
                     <td class=" " align="center"><?php echo $data_usability['kategori'] ?> </td>
-
                 <tr>
-
             </tbody>
         </table>
-
-
         <div class="container">
             <h4 align="left">Hasil Persentase : <?php echo round($data_akhir['hasil_akhir']) ?>%</h4>
             <h4 align="left">Kategori Kelayakan :
@@ -211,13 +188,8 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
 
      }
      ?>
-
-
             </h4>
-
         </div>
-
-
     </center>
     <br>
     <br>
@@ -230,7 +202,5 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
     <script>
     window.print();
     </script>
-
 </body>
-
 </html>

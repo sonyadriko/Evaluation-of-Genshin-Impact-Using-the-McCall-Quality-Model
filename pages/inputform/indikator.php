@@ -92,7 +92,7 @@ if (isset($_POST['simpan'])) { //untuk create
 <body>
     <div class="mx-auto">
         <!-- untuk memasukkan data -->
-        <div class="card border-success">
+        <!-- <div class="card border-success">
             <div class="card-header text-white bg-success">
                 Input Indikator
             </div>
@@ -148,7 +148,7 @@ if (isset($_POST['simpan'])) { //untuk create
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
 
         <!-- untuk mengeluarkan data -->
         <div class="card border-success">
@@ -160,15 +160,15 @@ if (isset($_POST['simpan'])) { //untuk create
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">Id_Indikator</th>
+                            <!-- <th scope="col">Id_Indikator</th> -->
                             <th scope="col">Indikator</th>
                             <th scope="col">Bobot</th>
-                            <th scope="col">Aksi</th>
+                            <!-- <th scope="col">Aksi</th> -->
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql2   = "select * from indikator order by id_indikator desc";
+                        $sql2   = "select * from indikator order by id_indikator asc";
                         $q2     = mysqli_query($koneksi, $sql2);
                         $urut   = 1;
                         while ($r2 = mysqli_fetch_array($q2)) {
@@ -179,16 +179,16 @@ if (isset($_POST['simpan'])) { //untuk create
                         ?>
                         <tr>
                             <th scope="row"><?php echo $urut++ ?></th>
-                            <td scope="row"><?php echo $id_indikator ?></td>
+                            <!-- <td scope="row"><?php echo $id_indikator ?></td> -->
                             <td scope="row"><?php echo $indikator ?></td>
                             <td scope="row"><?php echo $bobot ?></td>
-                            <td scope="row">
+                            <!-- <td scope="row">
                                 <a href="?page=pages/inputform/indikator&op=edit&id=<?php echo $id ?>"><button
                                         type="button" class="btn btn-outline-warning">Edit</button></a>
                                 <a href="?page=pages/inputform/indikator&op=delete&id=<?php echo $id?>"
                                     onclick="return confirm('Yakin mau delete data?')"><button type="button"
                                         class="btn btn-outline-danger">Delete</button></a>
-                            </td>
+                            </td> -->
                         </tr>
                         <?php
                         }
