@@ -1,5 +1,5 @@
 <?php
-    $koneksi  = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+    $koneksi  = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
 
@@ -57,7 +57,7 @@
                                <select class="form-control" name="uji">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                  $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                  $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `hasil_akhir`");
 
@@ -77,7 +77,7 @@
                                     onchange="myfunction()">
                                     <option value="">- Pilih -</option>
                                     <?php
-                                    $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                    $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                                     $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
@@ -129,7 +129,7 @@
                                    id="ganti1" onchange="myfunction1()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
@@ -181,7 +181,7 @@
                                    id="ganti2" onchange="myfunction2()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                               $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                               $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
@@ -233,7 +233,7 @@
                                    id="ganti3" onchange="myfunction3()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -284,7 +284,7 @@
                                    id="ganti4" onchange="myfunction4()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -335,7 +335,7 @@
                                    id="ganti5" onchange="myfunction5()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -386,7 +386,7 @@
                                    id="ganti6" onchange="myfunction6()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -437,7 +437,7 @@
                                    id="ganti7" onchange="myfunction7()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -488,7 +488,7 @@
                                    id="ganti8" onchange="myfunction8()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -539,7 +539,7 @@
                                    id="ganti9" onchange="myfunction9()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -590,7 +590,7 @@
                                    id="ganti10" onchange="myfunction10()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -641,7 +641,7 @@
                                    id="ganti11" onchange="myfunction11()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Completeness'");
                                 if (mysqli_num_rows($query)>0) {
@@ -704,7 +704,7 @@
                                    id="consistency" onchange="myfunctioncy()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                        $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                        $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                                         $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Consistency'");
 
@@ -754,7 +754,7 @@
                                    id="consistency1" onchange="myfunctioncy1()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                                   $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                                     $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Consistency'");
@@ -805,7 +805,7 @@
                                    id="consistency2" onchange="myfunctioncy2()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                               $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                               $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                                 $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Consistency'");
@@ -856,7 +856,7 @@
                                    id="consistency3" onchange="myfunctioncy3()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Consistency'");
@@ -907,7 +907,7 @@
                                    id="consistency4" onchange="myfunctioncy4()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Consistency'");
@@ -957,7 +957,7 @@
                                    id="consistency5" onchange="myfunctioncy5()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Consistency'");
@@ -1021,7 +1021,7 @@
                                    id="treacebility" onchange="myfunctioncyt1()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Traceability'");
@@ -1072,7 +1072,7 @@
                                    id="treacebility1" onchange="myfunctioncyt2()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Traceability'");
@@ -1123,7 +1123,7 @@
                                    id="treacebility2" onchange="myfunctioncyt3()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Traceability'");
@@ -1174,7 +1174,7 @@
                                    id="treacebility3" onchange="myfunctioncyt4()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Traceability'");
@@ -1225,7 +1225,7 @@
                                    id="treacebility4" onchange="myfunctioncyt5()">
                                    <option value="">- Pilih -</option>
                                    <?php
-                           $koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+                           $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
 
                             $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Traceability'");

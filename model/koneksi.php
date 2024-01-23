@@ -3,9 +3,9 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dbmansyah_mccall";
+$dbname = "mccallgenshin";
 
-$koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+$koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 if (!$koneksi) { //cek koneksi
 	die("Tidak bisa terkoneksi ke database");
 }

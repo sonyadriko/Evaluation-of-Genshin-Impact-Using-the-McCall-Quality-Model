@@ -11,7 +11,7 @@
 
 <!-- Main content -->
 <?php
-$koneksi    = mysqli_connect('localhost', 'root', '', 'dbmansyah_mccall');
+$koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 $id_pertanyaan      = "";
 $sub_indikator      = "";
 $pertanyaan         = "";
