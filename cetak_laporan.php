@@ -1,47 +1,43 @@
 <?php  
 
-
-include "model/koneksi.php";
-if (isset($_GET['uji']) && !empty($_GET['uji'])) {
-    $uji = $_GET['uji'];
-    include 'model/koneksi.php';
-
-    // $tampil_correctnes = $koneksi->query("SELECT * FROM glue INNER JOIN correctness ON correctness.id_correctness=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='correctness' order by glue.id LIMIT 1");
-
-    // tampil correctnes 
-    $tampil_correctnes = $koneksi->query("SELECT * FROM glue INNER JOIN correctness ON correctness.id_correctness=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='correctness'");
-
-    $data_correctness = mysqli_fetch_array($tampil_correctnes);
-
-    // tampil reliability
-    $tampil_reliability = $koneksi->query("SELECT * FROM glue INNER JOIN reliability ON reliability.id_reliability=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='reliability'");
-
-    $data_reliability= mysqli_fetch_array($tampil_reliability);
-
-    // tampil efficiency
-    $tampil_efficiency = $koneksi->query("SELECT * FROM glue INNER JOIN efficiency ON efficiency.id_efficiency=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='efficiency'");
-
-    $data_efficiency= mysqli_fetch_array($tampil_efficiency);
-
-    // tampil integrity
-    $tampil_integrity = $koneksi->query("SELECT * FROM glue INNER JOIN integrity ON integrity.id_integrity=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='integrity'");
-
-    $data_integrity= mysqli_fetch_array($tampil_integrity);
-
-    // tampil integrity
-    $tampil_usability = $koneksi->query("SELECT * FROM glue INNER JOIN usability ON usability.id_usability=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='usability'");
-
-    $data_usability= mysqli_fetch_array($tampil_usability);
-
-    $tampil_hasil = $koneksi->query("SELECT * FROM hasil_akhir WHERE id='$uji'");
-
-    $data_hasil= mysqli_fetch_array($tampil_hasil);
+// if (isset($_POST['tampil']) && !empty($_POST['uji'])) {
+//     $uji = $_POST['uji'];
 
 
-    $hasil_akhir = $koneksi->query("SELECT ROUND((((0.3 * (SELECT IFNULL((SELECT correctness.nilai_correctness FROM correctness WHERE correctness.id_correctness = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'correctness' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY correctness.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT reliability.nilai_reliability FROM reliability WHERE reliability.id_reliability = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'reliability' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY reliability.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT efficiency.nilai_efficiency FROM efficiency WHERE efficiency.id_efficiency = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'efficiency' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY efficiency.id DESC LIMIT 1),0))) + (0.3 * (SELECT IFNULL((SELECT integrity.nilai_integrity FROM integrity WHERE integrity.id_integrity = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'integrity' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY integrity.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT usability.nilai_usability FROM usability WHERE usability.id_usability = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'usability' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY usability.id DESC LIMIT 1),0)))) / 5) * 100, 2)AS hasil_akhir FROM hasil_akhir WHERE hasil_akhir.id='$uji'");
+include 'model/koneksi.php';
 
-    $data_akhir = mysqli_fetch_array($hasil_akhir);
-}
+// $tampil_correctnes = $koneksi->query("SELECT * FROM glue INNER JOIN correctness ON correctness.id_correctness=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='correctness' order by glue.id LIMIT 1");
+
+// tampil correctnes 
+$tampil_correctnes = $koneksi->query("SELECT * FROM correctness ORDER BY id DESC LIMIT 1");
+
+$data_correctness = mysqli_fetch_array($tampil_correctnes);
+
+// tampil reliability
+$tampil_reliability = $koneksi->query("SELECT * FROM reliability ORDER BY id DESC LIMIT 1");
+
+$data_reliability= mysqli_fetch_array($tampil_reliability);
+
+// tampil efficiency
+$tampil_efficiency = $koneksi->query("SELECT * FROM efficiency ORDER BY id DESC LIMIT 1");
+
+$data_efficiency= mysqli_fetch_array($tampil_efficiency);
+
+// tampil integrity
+$tampil_integrity = $koneksi->query("SELECT * FROM integrity ORDER BY id DESC LIMIT 1");
+
+$data_integrity= mysqli_fetch_array($tampil_integrity);
+
+// tampil integrity
+$tampil_usability = $koneksi->query("SELECT * FROM usability ORDER BY id DESC LIMIT 1");
+
+$data_usability= mysqli_fetch_array($tampil_usability);
+
+
+$hasil_akhir = $koneksi->query("SELECT ROUND((((0.3 * (SELECT IFNULL((SELECT correctness.nilai_correctness FROM correctness ORDER BY correctness.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT reliability.nilai_reliability FROM reliability ORDER BY reliability.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT efficiency.nilai_efficiency FROM efficiency  ORDER BY efficiency.id DESC LIMIT 1),0))) + (0.3 * (SELECT IFNULL((SELECT integrity.nilai_integrity FROM integrity  ORDER BY integrity.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT usability.nilai_usability FROM usability  ORDER BY usability.id DESC LIMIT 1),0)))) / 5) * 100, 2)AS hasil_akhir");
+
+$data_akhir = mysqli_fetch_array($hasil_akhir);
+// }
 
 ?>
 
@@ -70,11 +66,11 @@ if (isset($_GET['uji']) && !empty($_GET['uji'])) {
                 </tr>
             </tbody>
         </table>
-        <hr style="margin-top:12px;">
-        <center>
+        <!-- <hr style="margin-top:12px;"> -->
+        <!-- <center>
             <h2>Laporan Hasil Pengukuran </h2>
             <h2>Pengujian : <?php echo $data_hasil['nama_hasil']  ?></h2><br>
-        </center>
+        </center> -->
         <style>
         table {
             border-collapse: collapse;
