@@ -37,11 +37,176 @@
            <!-- untuk memasukkan data -->
            <div class="card border-success">
                <div class="card-header text-white bg-success">
-                   Input Correctness
+                   Hasil Correctness
                </div>
                <div class="card-body">
+
+
+
+               <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2   = "select * from pertanyaan where sub_indikator = 'Completeness' order by id asc";
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil1 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $id                 = $r2['id'];
+                                $id_pertanyaan      = $r2['id_pertanyaan'];
+                                $sub_indikator      = $r2['sub_indikator'];
+                                $pertanyaan         = $r2['pertanyaan'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $input = $r2['input'];
+
+                                $hasilbaru1 = $input*$bobot_pertanyaan;
+                                $totalHasil1 += $hasilbaru1;
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
+                                <td scope="row"><?php echo $sub_indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
+                                <td scope="row"><?php echo $hasilbaru1 ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Completeness: <?php echo $totalHasil1 ?> </p>
+
+                <hr>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2   = "select * from pertanyaan where sub_indikator = 'Consistency' order by id asc";
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil2 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $id                 = $r2['id'];
+                                $id_pertanyaan      = $r2['id_pertanyaan'];
+                                $sub_indikator      = $r2['sub_indikator'];
+                                $pertanyaan         = $r2['pertanyaan'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $input = $r2['input'];
+
+                                $hasilbaru2 = $input*$bobot_pertanyaan;
+                                $totalHasil2 += $hasilbaru2;
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
+                                <td scope="row"><?php echo $sub_indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
+                                <td scope="row"><?php echo $hasilbaru2 ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                        
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Consistency: <?php echo $totalHasil2 ?> </p>
+
+                <hr>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2   = "select * from pertanyaan where sub_indikator = 'Traceability' order by id asc";
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil3 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $id                 = $r2['id'];
+                                $id_pertanyaan      = $r2['id_pertanyaan'];
+                                $sub_indikator      = $r2['sub_indikator'];
+                                $pertanyaan         = $r2['pertanyaan'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $input = $r2['input'];
+
+                                $hasilbaru3 = $input*$bobot_pertanyaan;
+                                $totalHasil3 += $hasilbaru3;
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
+                                <td scope="row"><?php echo $sub_indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
+                                <td scope="row"><?php echo $hasilbaru3 ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Traceability: <?php echo $totalHasil3 ?> </p>
+
+                <hr>
+
+                    <?php
+                        $ketemu = ($totalHasil1 + $totalHasil2 + $totalHasil3) / 3;
+                        $hasilketemu = min($ketemu, 5);
+                        $hasilketemu = number_format($hasilketemu, 2);
+                        $nilaidapat = ($hasilketemu / 5) * 100;
+                        $roundedHasilnya = round($nilaidapat);
+
+                        if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
+                            $k_corec = "Sangat Baik";
+                        } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
+                            $k_corec = "Baik";
+                        } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
+                            $k_corec = "Cukup Baik";
+                        } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
+                            $k_corec = "Tidak Baik";
+                        } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
+                            $k_corec = "Sangat Tidak Baik";
+                        } else {
+                            $k_corec = "";
+                        }
+
+                        // echo "Presentase Correctness: $roundedHasilnya\n";
+                        // echo "\n"; 
+                        // echo "Kategori Kelayakan: $k_corec\n";
+                        
+                    ?>
+                    <p style="font-weight:bold;" class="mt-4"> Nilai Correctness: <?php echo $hasilketemu ?> </p>
+                    <p style="font-weight:bold;" class="mt-4"> Presentase Correctness: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+
+
                    <!-- Pertanyaan Completeness -->
-                   <form action="" method="POST">
+                   <!-- <form action="" method="POST">
                         <div class="mb-3 row">
                            <label for="" class="col-sm-2 col-form-label">Id_Correctness</label>
                            <div class="col order-5">
@@ -53,7 +218,6 @@
                            <label for="" class="col-sm-2 col-form-label">Pilih Nama Uji</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
                                <select class="form-control" name="uji">
                                    <option value="">- Pilih -</option>
                                    <?php
@@ -72,7 +236,6 @@
                             <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Completeness</label>
                             <div class="col-sm-10">
                                 <!-- 
-                                <input name="cmd_show" type="text" value="true" /> -->
                                 <select name="pertanyaan_completeness" class="form-control" name="correctness" id="ganti"
                                     onchange="myfunction()">
                                     <option value="">- Pilih -</option>
@@ -124,7 +287,6 @@
                            <label for="" class="col-sm-2 col-form-label">2. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti1" onchange="myfunction1()">
                                    <option value="">- Pilih -</option>
@@ -176,7 +338,6 @@
                            <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti2" onchange="myfunction2()">
                                    <option value="">- Pilih -</option>
@@ -228,7 +389,6 @@
                            <label for="" class="col-sm-2 col-form-label">4. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti3" onchange="myfunction3()">
                                    <option value="">- Pilih -</option>
@@ -279,7 +439,6 @@
                            <label for="" class="col-sm-2 col-form-label">5. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti4" onchange="myfunction4()">
                                    <option value="">- Pilih -</option>
@@ -330,7 +489,7 @@
                            <label for="" class="col-sm-2 col-form-label">6. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti5" onchange="myfunction5()">
                                    <option value="">- Pilih -</option>
@@ -381,7 +540,7 @@
                            <label for="" class="col-sm-2 col-form-label">7. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti6" onchange="myfunction6()">
                                    <option value="">- Pilih -</option>
@@ -432,7 +591,7 @@
                            <label for="" class="col-sm-2 col-form-label">8. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti7" onchange="myfunction7()">
                                    <option value="">- Pilih -</option>
@@ -483,7 +642,7 @@
                            <label for="" class="col-sm-2 col-form-label">9. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti8" onchange="myfunction8()">
                                    <option value="">- Pilih -</option>
@@ -534,7 +693,7 @@
                            <label for="" class="col-sm-2 col-form-label">10. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti9" onchange="myfunction9()">
                                    <option value="">- Pilih -</option>
@@ -585,7 +744,7 @@
                            <label for="" class="col-sm-2 col-form-label">11. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti10" onchange="myfunction10()">
                                    <option value="">- Pilih -</option>
@@ -636,7 +795,7 @@
                            <label for="" class="col-sm-2 col-form-label">12. Pertanyaan Completeness</label>
                            <div class="col-sm-10">
                                <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            
                                <select name="pertanyaan_completeness" class="form-control" name="" name="correctness"
                                    id="ganti11" onchange="myfunction11()">
                                    <option value="">- Pilih -</option>
@@ -697,7 +856,7 @@
 
                        <!-- Pertanyaan Consistency -->
                        <!-- <form action="" method="POST"> -->
-                       <div class="mb-3 row">
+                       <!-- <div class="mb-3 row">
                            <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Consistency</label>
                            <div class="col-sm-10">
                                <select name="pertanyaan_completeness" class="form-control" name="consistency"
@@ -1010,9 +1169,7 @@
                                    readonly>
                            </div>
                        </div>
-                       <!--     </form> -->
                        <hr>
-                       <!--  <form action="" method="POST"> -->
                        <div class="mb-3 row">
                            <label for="" class="col-sm-2 col-form-label">1. Pertanyaan
                                Treaceability</label>
@@ -1278,7 +1435,7 @@
                                <input type="text" class="form-control col-md-1" id="hasiltre" name="hasiltre" value=""
                                    readonly>
                            </div>
-                       </div>
+                       </div> 
                        <hr>
                        <hr>
                        <div class="mb-3 row">
@@ -1307,12 +1464,11 @@
                            </div>
                        </div>
                        <hr>
-                       <!-- batas -->
                        <div class=" col-12">
                            <input type="submit" name="save" value="Save" class="btn btn-outline-success" />
                            <button type="reset" class="btn btn-outline-warning">Reset Form</button>
                        </div>
-                   </form>
+                   </form> -->
                </div>
            </div>
        </div>

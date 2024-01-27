@@ -30,10 +30,171 @@
         <!-- untuk memasukkan data -->
         <div class="card border-success">
             <div class="card-header text-white bg-success">
-                Input Usability
+                Hasil Usability
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+
+            <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2   = "select * from pertanyaan where sub_indikator = 'Communicativeness' order by id asc";
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil1 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $id                 = $r2['id'];
+                                $id_pertanyaan      = $r2['id_pertanyaan'];
+                                $sub_indikator      = $r2['sub_indikator'];
+                                $pertanyaan         = $r2['pertanyaan'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $input = $r2['input'];
+
+                                $hasilbaru1 = $input*$bobot_pertanyaan;
+                                $totalHasil1 += $hasilbaru1;
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
+                                <td scope="row"><?php echo $sub_indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
+                                <td scope="row"><?php echo $hasilbaru1 ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Communicativeness: <?php echo $totalHasil1 ?> </p>
+
+                <hr>
+
+                <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2   = "select * from pertanyaan where sub_indikator = 'Operability' order by id asc";
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil2 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $id                 = $r2['id'];
+                                $id_pertanyaan      = $r2['id_pertanyaan'];
+                                $sub_indikator      = $r2['sub_indikator'];
+                                $pertanyaan         = $r2['pertanyaan'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $input = $r2['input'];
+
+                                $hasilbaru2 = $input*$bobot_pertanyaan;
+                                $totalHasil2 += $hasilbaru2;
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
+                                <td scope="row"><?php echo $sub_indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
+                                <td scope="row"><?php echo $hasilbaru2 ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                        
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Operability: <?php echo $totalHasil2 ?> </p>
+
+                <hr>
+
+                <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2   = "select * from pertanyaan where sub_indikator = 'Training' order by id asc";
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil3 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $id                 = $r2['id'];
+                                $id_pertanyaan      = $r2['id_pertanyaan'];
+                                $sub_indikator      = $r2['sub_indikator'];
+                                $pertanyaan         = $r2['pertanyaan'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $input = $r2['input'];
+
+                                $hasilbaru3 = $input*$bobot_pertanyaan;
+                                $totalHasil3 += $hasilbaru3;
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
+                                <td scope="row"><?php echo $sub_indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
+                                <td scope="row"><?php echo $hasilbaru3 ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Training: <?php echo $totalHasil3 ?> </p>
+
+                <hr>
+
+                <?php
+                        $ketemu = ($totalHasil1 + $totalHasil2 + $totalHasil3) / 3;
+                        $hasilketemu = min($ketemu, 5);
+                        $hasilketemu = number_format($hasilketemu, 2);
+                        $nilaidapat = ($hasilketemu / 5) * 100;
+                        $roundedHasilnya = round($nilaidapat);
+
+                        if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
+                            $k_corec = "Sangat Baik";
+                        } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
+                            $k_corec = "Baik";
+                        } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
+                            $k_corec = "Cukup Baik";
+                        } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
+                            $k_corec = "Tidak Baik";
+                        } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
+                            $k_corec = "Sangat Tidak Baik";
+                        } else {
+                            $k_corec = "";
+                        }
+
+                        // echo "Presentase Correctness: $roundedHasilnya\n";
+                        // echo "\n"; 
+                        // echo "Kategori Kelayakan: $k_corec\n";
+                        
+                    ?>
+                    <p style="font-weight:bold;" class="mt-4"> Nilai Usability: <?php echo $hasilketemu ?> </p>
+                    <p style="font-weight:bold;" class="mt-4"> Presentase Usability: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+
+
+                <!-- <form action="" method="POST">
                     <div class="mb-3 row">
                         <label for="" class="col-sm-2 col-form-label">Id_Usability</label>
                         <div class="col order-5">
@@ -45,7 +206,7 @@
                         <label for="" class="col-sm-2 col-form-label">Pilih Nama Uji</label>
                         <div class="col-sm-10">
                             <!-- 
-                            <input name="cmd_show" type="text" value="true" /> -->
+                            <input name="cmd_show" type="text" value="true" />
                             <select class="form-control" name="uji">
                                 <option value="">- Pilih -</option>
                                 <?php
@@ -1069,12 +1230,12 @@
                         </div>
                     </div>
                     <hr>
-                    <!-- batas -->
+                    <!-- batas 
                     <div class=" col-12">
                         <input type="submit" name="save" value="Save" class="btn btn-outline-success" />
                         <button type="reset" class="btn btn-outline-warning">Reset Form</button>
                     </div>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>

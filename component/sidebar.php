@@ -76,12 +76,12 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="?page=pages/inputform/penilaian/tambah_ujikelayakan" class="nav-link">
                                 <i class="fas fa-circle nav-icon"></i>
                                 <p>Halaman Uji</p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="?page=pages/inputform/penilaian/correctness" class="nav-link">
                                 <i class="fas fa-circle nav-icon"></i>

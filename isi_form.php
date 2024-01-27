@@ -164,57 +164,47 @@ if (isset($_POST['simpan'])) { //untuk create
                 Data Pertanyaan
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <!-- <th scope="col">Id_Pertanyaan</th> -->
-                            <th scope="col">Indikator</th>
-                            <th scope="col">Pertanyaan</th>
-                            <th scope="col">Average</th>
-
-                            <!-- <th scope="col">Bobot Pertanyaan</th> -->
-                            <!-- <th scope="col">Aksi</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sql2   = "select * from pertanyaan order by id asc";
-                        $q2     = mysqli_query($koneksi, $sql2);
-                        $urut   = 1;
-                        while ($r2 = mysqli_fetch_array($q2)) {
-                            $id                 = $r2['id'];
-                            $id_pertanyaan      = $r2['id_pertanyaan'];
-                            $sub_indikator      = $r2['sub_indikator'];
-                            $pertanyaan         = $r2['pertanyaan'];
-                            $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
-
-                        ?>
-                        <tr>
-                            <th scope="row"><?php echo $urut++ ?></th>
-                            <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
-                            <td scope="row"><?php echo $sub_indikator ?></td>
-                            <td scope="row"><?php echo $pertanyaan ?></td>
-                            <input type="hidden" name="idAverage[]" value="<?php echo $id; ?>">
-                                <td>
-                                    <input type="text" class="form-control" name="inputAverage[]" aria-describedby="inputAverage" required>
-                                </td>
-                            <!-- <td scope="row"><?php echo $bobot_pertanyaan ?></td> -->
-                            <!-- <td scope="row">
-                                <a href="?page=pages/inputform/pertanyaan&op=edit&id=<?php echo $id ?>"><button
-                                        type="button" class="btn btn-outline-warning">Edit</button></a>
-                                <a href="?page=pages/inputform/pertanyaan&op=delete&id=<?php echo $id?>"
-                                    onclick="return confirm('Yakin mau delete data?')"><button type="button"
-                                        class="btn btn-outline-danger">Delete</button></a>
-                            </td> -->
-                        </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                <br>
-                <button type="submit" class="btn btn-primary">Submit Average</button>
+                <form method="post" action="handle_hitung.php">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
+                                <th scope="col">Average</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql2   = "select * from pertanyaan order by id asc";
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $id                 = $r2['id'];
+                                $id_pertanyaan      = $r2['id_pertanyaan'];
+                                $sub_indikator      = $r2['sub_indikator'];
+                                $pertanyaan         = $r2['pertanyaan'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
+                                <td scope="row"><?php echo $sub_indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
+                                <input type="hidden" name="idPertanyaan[]" value="<?php echo $id; ?>">
+                                    <td>
+                                        <input type="text" class="form-control" name="inputAverage[]" aria-describedby="inputAverage" required>
+                                    </td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit Average</button>
+                </form>
+              
 
             </div>
         </div>
