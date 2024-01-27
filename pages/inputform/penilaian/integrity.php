@@ -106,280 +106,40 @@
                     <p style="font-weight:bold;" class="mt-4"> Presentase Integrity: <?php echo $roundedHasilnya ?>%</p>
                     <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
 
-                <!-- <form action="" method="POST">
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">Id_Integrity</label>
-                        <div class="col order-5">
-                            <input type="text" class="form-control col-md-1" id="id_integrity" name="id_integrity"
-                                value="">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">Pilih Nama Uji</label>
-                        <div class="col-sm-10">
-                            <!-- 
-                            <input name="cmd_show" type="text" value="true" /> 
-                            <select class="form-control" name="uji">
-                                <option value="">- Pilih -</option>
-                                <?php
-                                include '/../../../model/koneksi.php';
+                    <button id="simpanButton" class="btn btn-primary mt-4">Simpan</button>
 
-                                $query = mysqli_query($koneksi, "SELECT * FROM `hasil_akhir`");
-
-                                while($data = mysqli_fetch_array($query)) {
-                                    ?>
-                                <option value="<?php echo $data['id']?>"><?php echo $data['nama_hasil']?></option>
-                                <?php  } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">1. Pertanyaan Security</label>
-                        <div class="col-sm-10">
-                            <select name="pertanyaan_efficiency" class="form-control" name="integrity" id="integrity"
-                                onchange="myfunction()">
-                                <option value="">- Pilih -</option>
-                                <?php
-                            include '/../../../model/koneksi.php';
-
-                            $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Security'");
-                            if (mysqli_num_rows($query)>0) {
-
-                                while($data = mysqli_fetch_array($query)) {
-                                    ?>
-                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
-                                <?php } } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="container mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <label for="" class="form-label">Bobot</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot" name="bobot" value=""
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="" class="form-label">Average</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="avg_integrity"
-                                        name="avg_integrity" value="">
-                                </div>
-                            </div>
-                            <div class="col order-1">
-                                <label for="" class="form-label"></label>
-                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
-                                    onclick="hasil_integrity()">
-                                    Hasil</button>
-                            </div>
-                            <div class="col order-5">
-                                <label for="" class="form-label">wncn</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="wncn_integriy"
-                                        name="wncn_integriy" value="" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">2. Pertanyaan Security</label>
-                        <div class="col-sm-10">
-                            <select name="pertanyaan_efficiency" class="form-control" name="integrity1" id="integrity1"
-                                onchange="myfunction1()">
-                                <option value="">- Pilih -</option>
-                                <?php
-                                include '/../../../model/koneksi.php';
-
-                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Security'");
-                                if (mysqli_num_rows($query)>0) {
-
-                                    while($data = mysqli_fetch_array($query)) {
-                                        ?>
-                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
-                                <?php } } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="container mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <label for="" class="form-label">Bobot</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot1" name="bobot1" value=""
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="" class="form-label">Average</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="avg_integrity1"
-                                        name="avg_integrity1" value="">
-                                </div>
-                            </div>
-                            <div class="col order-1">
-                                <label for="" class="form-label"></label>
-                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
-                                    onclick="hasil_integrity1()">
-                                    Hasil</button>
-                            </div>
-                            <div class="col order-5">
-                                <label for="" class="form-label">wncn</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="wncn_integriy1"
-                                        name="wncn_integriy1" value="" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">3. Pertanyaan Security</label>
-                        <div class="col-sm-10">
-                            <select name="pertanyaan_efficiency" class="form-control" name="integrity2" id="integrity2"
-                                onchange="myfunction2()">
-                                <option value="">- Pilih -</option>
-                                <?php
-                                include '/../../../model/koneksi.php';
-
-                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Security'");
-                                if (mysqli_num_rows($query)>0) {
-
-                                    while($data = mysqli_fetch_array($query)) {
-                                        ?>
-                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
-                                <?php } } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="container mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <label for="" class="form-label">Bobot</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot2" name="bobot2" value=""
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="" class="form-label">Average</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="avg_integrity2"
-                                        name="avg_integrity2" value="">
-                                </div>
-                            </div>
-                            <div class="col order-1">
-                                <label for="" class="form-label"></label>
-                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
-                                    onclick="hasil_integrity2()">
-                                    Hasil</button>
-                            </div>
-                            <div class="col order-5">
-                                <label for="" class="form-label">wncn</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="wncn_integriy2"
-                                        name="wncn_integriy2" value="" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">4. Pertanyaan Security</label>
-                        <div class="col-sm-10">
-                            <select name="pertanyaan_efficiency" class="form-control" name="integrity3" id="integrity3"
-                                onchange="myfunction3()">
-                                <option value="">- Pilih -</option>
-                                <?php
-                                include '/../../../model/koneksi.php';
-
-                                $query = mysqli_query($koneksi, "SELECT * FROM `pertanyaan` WHERE `sub_indikator` = 'Security'");
-                                if (mysqli_num_rows($query)>0) {
-
-                                    while($data = mysqli_fetch_array($query)) {
-                                        ?>
-                                <option value="<?php echo $data['id']?>"><?php echo $data['pertanyaan']?></option>
-                                <?php } } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="container mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <label for="" class="form-label">Bobot</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="bobot3" name="bobot3" value=""
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="" class="form-label">Average</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="avg_integrity3"
-                                        name="avg_integrity3" value="">
-                                </div>
-                            </div>
-                            <div class="col order-1">
-                                <label for="" class="form-label"></label>
-                                <button type="button" class="btn btn-success col-md-3" style="margin-top: 26px;"
-                                    onclick="hasil_integrity3()">
-                                    Hasil</button>
-                            </div>
-                            <div class="col order-5">
-                                <label for="" class="form-label">wncn</label>
-                                <div class="">
-                                    <input type="text" class="form-control col-md-3" id="wncn_integriy3"
-                                        name="wncn_integriy3" value="" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="mb-3 row">
-                        <button type="button" class="col-sm-2 col-btn btn-success"
-                            onclick="hasil_akhirintegrity()">Hasil Security</button>
-                        <div class="col order-5">
-                            <input type="text" class="form-control col-md-1" id="hasilnya" name="hasilnya" value=""
-                                readonly>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="mb-3 row">
-                        <button type="button" class="col-sm-2 col-btn btn-success" onclick="hasil_keseluruhan()">Hasil
-                            Akhir</button>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">Nilai Integrity</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control col-md-1" id="n_corec" name="n_corec" value=""
-                                readonly>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="" class="col-sm-2 col-form-label">Persentase Integrity</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control col-md-1" id="p_corec" name="p_corec" value="%"
-                                readonly>
-                        </div>
-                    </div>
-                    <div class="mb-3 row align-items-center">
-                        <label for="" class="col-sm-2 col-form-label">Kategori Kelayakan</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control col-md-4" id="k_corec" name="k_corec" value=""
-                                readonly>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- batas
-                    <div class=" col-12">
-                        <input type="submit" name="save" value="Save" class="btn btn-outline-success" />
-                        <button type="reset" class="btn btn-outline-warning">Reset Form</button>
-                    </div>
-                </form> -->
             </div>
         </div>
     </div>
+
+    <script>
+document.getElementById("simpanButton").addEventListener("click", function() {
+    // Menggunakan Ajax untuk mengirim data ke server
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "simpan_hasil_integrity.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // Mengumpulkan data yang ingin disimpan
+    var data = "totalHasil1=" + encodeURIComponent(<?php echo json_encode($totalHasil1); ?>) +
+               "&totalIntegrity=" + encodeURIComponent(<?php echo json_encode($hasilketemu); ?>) +
+               "&roundedHasilnya=" + encodeURIComponent(<?php echo json_encode($roundedHasilnya); ?>) +
+               "&k_corec=" + encodeURIComponent(<?php echo json_encode($k_corec); ?>);
+
+    // Menanggapi hasil pengiriman data
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Tanggapan dari server (jika diperlukan)
+            var response = xhr.responseText;
+            console.log(response); // Tampilkan di konsol untuk tujuan debug
+            // Mungkin ada langkah-langkah atau tindakan lain yang perlu diambil setelah menyimpan data
+            // ...
+        }
+    };
+
+    // Mengirim data
+    xhr.send(data);
+});
+</script>
 
 
     <?php

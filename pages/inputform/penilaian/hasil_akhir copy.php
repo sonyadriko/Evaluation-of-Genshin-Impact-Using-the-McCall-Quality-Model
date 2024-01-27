@@ -1,7 +1,7 @@
 <?php
 
-// if (isset($_POST['tampil']) && !empty($_POST['uji'])) {
-//     $uji = $_POST['uji'];
+if (isset($_POST['tampil']) && !empty($_POST['uji'])) {
+    $uji = $_POST['uji'];
 
 
     include 'model/koneksi.php';
@@ -9,35 +9,35 @@
     // $tampil_correctnes = $koneksi->query("SELECT * FROM glue INNER JOIN correctness ON correctness.id_correctness=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='correctness' order by glue.id LIMIT 1");
 
     // tampil correctnes 
-    $tampil_correctnes = $koneksi->query("SELECT * FROM correctness ORDER BY id DESC LIMIT 1");
+    $tampil_correctnes = $koneksi->query("SELECT * FROM glue INNER JOIN correctness ON correctness.id_correctness=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='correctness'");
 
     $data_correctness = mysqli_fetch_array($tampil_correctnes);
 
     // tampil reliability
-    $tampil_reliability = $koneksi->query("SELECT * FROM reliability ORDER BY id DESC LIMIT 1");
+    $tampil_reliability = $koneksi->query("SELECT * FROM glue INNER JOIN reliability ON reliability.id_reliability=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='reliability'");
 
     $data_reliability= mysqli_fetch_array($tampil_reliability);
 
     // tampil efficiency
-    $tampil_efficiency = $koneksi->query("SELECT * FROM efficiency ORDER BY id DESC LIMIT 1");
+    $tampil_efficiency = $koneksi->query("SELECT * FROM glue INNER JOIN efficiency ON efficiency.id_efficiency=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='efficiency'");
 
     $data_efficiency= mysqli_fetch_array($tampil_efficiency);
 
     // tampil integrity
-    $tampil_integrity = $koneksi->query("SELECT * FROM integrity ORDER BY id DESC LIMIT 1");
+    $tampil_integrity = $koneksi->query("SELECT * FROM glue INNER JOIN integrity ON integrity.id_integrity=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='integrity'");
 
     $data_integrity= mysqli_fetch_array($tampil_integrity);
 
     // tampil integrity
-    $tampil_usability = $koneksi->query("SELECT * FROM usability ORDER BY id DESC LIMIT 1");
+    $tampil_usability = $koneksi->query("SELECT * FROM glue INNER JOIN usability ON usability.id_usability=glue.id_sumber WHERE glue.id_hasilakhir='$uji' AND glue.tipe_sumber='usability'");
 
     $data_usability= mysqli_fetch_array($tampil_usability);
 
 
-    $hasil_akhir = $koneksi->query("SELECT ROUND((((0.3 * (SELECT IFNULL((SELECT correctness.nilai_correctness FROM correctness ORDER BY correctness.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT reliability.nilai_reliability FROM reliability ORDER BY reliability.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT efficiency.nilai_efficiency FROM efficiency  ORDER BY efficiency.id DESC LIMIT 1),0))) + (0.3 * (SELECT IFNULL((SELECT integrity.nilai_integrity FROM integrity  ORDER BY integrity.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT usability.nilai_usability FROM usability  ORDER BY usability.id DESC LIMIT 1),0)))) / 5) * 100, 2)AS hasil_akhir");
+    $hasil_akhir = $koneksi->query("SELECT ROUND((((0.3 * (SELECT IFNULL((SELECT correctness.nilai_correctness FROM correctness WHERE correctness.id_correctness = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'correctness' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY correctness.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT reliability.nilai_reliability FROM reliability WHERE reliability.id_reliability = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'reliability' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY reliability.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT efficiency.nilai_efficiency FROM efficiency WHERE efficiency.id_efficiency = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'efficiency' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY efficiency.id DESC LIMIT 1),0))) + (0.3 * (SELECT IFNULL((SELECT integrity.nilai_integrity FROM integrity WHERE integrity.id_integrity = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'integrity' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY integrity.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT usability.nilai_usability FROM usability WHERE usability.id_usability = (SELECT glue.id_sumber FROM glue WHERE glue.tipe_sumber = 'usability' AND glue.id_hasilakhir = hasil_akhir.id) ORDER BY usability.id DESC LIMIT 1),0)))) / 5) * 100, 2)AS hasil_akhir FROM hasil_akhir WHERE hasil_akhir.id='$uji'");
 
     $data_akhir = mysqli_fetch_array($hasil_akhir);
-// }
+}
 ?>
 
 <div class="content-header">
@@ -77,12 +77,12 @@
             <div class="card-body">
                 <form action="" method="POST">
                     <div class="mb-3 row">
-                        <!-- <div class="col order">
+                        <div class="col order">
                             <div class="mb-3 row">
                                 <label for="" class="col-sm-2 col-form-label">Pilih Nama Uji</label>
                                 <div class="col-sm-10">
                                     <!-- 
-                            <input name="cmd_show" type="text" value="true" />
+                            <input name="cmd_show" type="text" value="true" /> -->
                                     <select class="form-control" name="uji">
                                         <option value="">- Pilih -</option>
                                         <?php
@@ -98,9 +98,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <!--  <a href=""><button type="button" class="btn btn-outline-primary">Tampil</button></a> 
+                            <!--  <a href=""><button type="button" class="btn btn-outline-primary">Tampil</button></a> -->
                             <input type="submit" name="tampil" value="Tampil" class="btn btn-outline-primary" />
-                        </div> -->
+                        </div>
                         <hr>
                         <label>Correctness
                             <hr>
@@ -247,13 +247,13 @@
                         <label>Hasil Akhir
                             <hr>
                         </label>
-                        <!-- <div class="mb-3 row">
+                        <div class="mb-3 row">
                             <label for="" class="col-sm-2 col-form-label">ID</label>
                             <div class="col order-5">
                                 <input type="text" class="form-control col-md-3" id="id_akhir" name="id_akhir"
                                     value="<?= (isset($uji)) ? $uji : ""; ?>">
                             </div>
-                        </div> -->
+                        </div>
                         <div class="mb-3 row">
                             <label for="" class="col-sm-2 col-form-label">Hasil Persentase</label>
                             <div class="col order-5">
@@ -302,7 +302,7 @@
                         </div>
                         <hr>
                         <div class="col order">
-                            <!-- <input type="submit" name="save" value="Save" class="btn btn-outline-success" /> -->
+                            <input type="submit" name="save" value="Save" class="btn btn-outline-success" />
                             <!--     <a href="#"><button type="button" class="btn btn-outline-success">Save</button></a> -->
                             <a href="cetak_laporan.php?uji=<?= (isset($uji))? $uji : "" ?>" id="tmbl_cetak"
                                 target="_blank"><button type="button" class="btn btn-outline-warning">Cetak

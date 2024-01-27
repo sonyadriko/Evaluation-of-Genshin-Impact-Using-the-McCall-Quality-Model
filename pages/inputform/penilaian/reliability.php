@@ -201,10 +201,44 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
 
 
+                    <button id="simpanButton" class="btn btn-primary mt-4">Simpan</button>
+
+
 
             </div>
         </div>
     </div>
+
+    <script>
+document.getElementById("simpanButton").addEventListener("click", function() {
+    // Menggunakan Ajax untuk mengirim data ke server
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "simpan_hasil_reliability.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // Mengumpulkan data yang ingin disimpan
+    var data = "totalHasil1=" + encodeURIComponent(<?php echo json_encode($totalHasil1); ?>) +
+               "&totalHasil2=" + encodeURIComponent(<?php echo json_encode($totalHasil2); ?>) +
+               "&totalHasil3=" + encodeURIComponent(<?php echo json_encode($totalHasil3); ?>) +
+               "&totalReliability=" + encodeURIComponent(<?php echo json_encode($hasilketemu); ?>) +
+               "&roundedHasilnya=" + encodeURIComponent(<?php echo json_encode($roundedHasilnya); ?>) +
+               "&k_corec=" + encodeURIComponent(<?php echo json_encode($k_corec); ?>);
+
+    // Menanggapi hasil pengiriman data
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Tanggapan dari server (jika diperlukan)
+            var response = xhr.responseText;
+            console.log(response); // Tampilkan di konsol untuk tujuan debug
+            // Mungkin ada langkah-langkah atau tindakan lain yang perlu diambil setelah menyimpan data
+            // ...
+        }
+    };
+
+    // Mengirim data
+    xhr.send(data);
+});
+</script>
 
     <?php
 
