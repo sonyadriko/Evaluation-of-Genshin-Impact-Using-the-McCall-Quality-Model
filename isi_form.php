@@ -90,6 +90,7 @@ if (isset($_POST['simpan'])) { //untuk create
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
@@ -164,7 +165,7 @@ if (isset($_POST['simpan'])) { //untuk create
                 Data Pertanyaan
             </div>
             <div class="card-body">
-                <form method="post" action="handle_hitung.php">
+                <form method="post" action="handle_hitung.php" id="averageForm">
                     <table class="table">
                         <thead>
                             <tr>
@@ -210,3 +211,26 @@ if (isset($_POST['simpan'])) { //untuk create
         </div>
     </div>
 </body>
+<script>
+    // Function to show SweetAlert success message
+    function showSuccessMessage() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Submitted successfully.',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+
+    // Event listener for the form submission
+    document.getElementById('averageForm').addEventListener('submit', function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        // Your form submission logic here
+
+        // Show SweetAlert success message
+        showSuccessMessage();
+    });
+</script>

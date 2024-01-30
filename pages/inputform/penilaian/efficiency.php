@@ -123,7 +123,7 @@
                 <hr>
 
                     <?php
-                        $ketemu = ($totalHasil1 + $totalHasil2) / 1;
+                        $ketemu = ($totalHasil1 + $totalHasil2) / 2;
                         $hasilketemu = min($ketemu, 5);
                         $hasilketemu = number_format($hasilketemu, 2);
                         $nilaidapat = ($hasilketemu / 5) * 100;
@@ -152,7 +152,11 @@
                     <p style="font-weight:bold;" class="mt-4"> Presentase Efficiency: <?php echo $roundedHasilnya ?>%</p>
                     <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
 
+                    <?php
+                    if($_SESSION['role'] == 'admin') {
+                ?>
                     <button id="simpanButton" class="btn btn-primary mt-4">Simpan</button>
+                    <?php } ?>
 
             </div>
         </div>
@@ -180,6 +184,12 @@ document.getElementById("simpanButton").addEventListener("click", function() {
             console.log(response); // Tampilkan di konsol untuk tujuan debug
             // Mungkin ada langkah-langkah atau tindakan lain yang perlu diambil setelah menyimpan data
             // ...
+            Swal.fire({
+                icon: 'success',
+                title: 'Data berhasil disimpan!',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     };
 

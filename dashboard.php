@@ -1,7 +1,7 @@
 <?php 
         session_start();
-        if($_SESSION['status']!="login"){
-            header("location:login.php");
+        if (!isset($_SESSION['username'])) {
+            header("Location: login.php");
         }
     ?>
 
@@ -15,18 +15,15 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
-        <!-- Preloader -->
-        <!-- <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="asset/dist/img/foto1.png" alt="foto1" height="60" width="60">
-        </div> -->
-
         <!-- Navbar -->
         <?php include 'component/navbar.php' ?>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <?php include 'component/sidebar.php' ?>
+        <?php include 'component/sidebar.php';
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+        ?>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="background-image: url('asset/dist/img/logo6.png');">

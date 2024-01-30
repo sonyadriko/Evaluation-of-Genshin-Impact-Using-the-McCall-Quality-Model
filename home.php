@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+}
+?>
 <section class="content" style="background-image: url('asset/dist/img/logo6.png');">
     <div class="content-header">
         <div class="container-fluid">
@@ -8,6 +13,26 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h5 class="m-0">Selamat Datang
+                        <?php 
+                            if($_SESSION['role'] == 'admin') {
+                                echo "Admin";
+                            }elseif($_SESSION['role'] == 'user'){
+                                echo "User";
+                            }
+                        ?>
+                    </h5>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <?php
+                    if($_SESSION['role'] == 'admin') {
+                ?>
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
@@ -104,5 +129,6 @@
             </div>
             <!-- ./col -->
         </div>
+        <?php } ?>
         <!-- /.row -->
 </section>
