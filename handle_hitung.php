@@ -1,15 +1,13 @@
 <?php
 include 'model/koneksi.php';
-// session_start();
-
-// if (!isset($_SESSION['id_admin'])) {
-//     header("Location: login.php");
-// }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the submitted realisasi values and corresponding id_peta_strategi values
     $averageValues = $_POST['inputAverage'];
     $idPertanyaan = $_POST['idPertanyaan'];
+
+    // Initialize response array
+    $response = array();
 
     // Loop through the values and update the database
     for ($i = 0; $i < count($averageValues); $i++) {
@@ -18,11 +16,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Update the realisasi in the database
         $updateQuery = "UPDATE pertanyaan SET input = '$average' WHERE id = $idPetaStrategi";
-        mysqli_query($koneksi, $updateQuery);
+        $result = mysqli_query($koneksi, $updateQuery);
+
+        // Check for errors
+        if (!$result) {
+            $response['error'] = "Error updating data for ID $idPetaStrategi: " . mysqli_error($koneksi);
+            echo json_encode($response);
+            exit();
+        }
     }
 
-    // Redirect or display a success message
-    header("Location: dashboard.php");
+    // Respond with a JSON object indicating success
+    $response['sukses'] = 'Data successfully updated';
+    echo json_encode($response);
     exit();
 }
 ?>

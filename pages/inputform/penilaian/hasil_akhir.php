@@ -34,7 +34,7 @@
     $data_usability= mysqli_fetch_array($tampil_usability);
 
 
-    $hasil_akhir = $koneksi->query("SELECT ROUND((((0.3 * (SELECT IFNULL((SELECT correctness.nilai_correctness FROM correctness ORDER BY correctness.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT reliability.nilai_reliability FROM reliability ORDER BY reliability.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT efficiency.nilai_efficiency FROM efficiency  ORDER BY efficiency.id DESC LIMIT 1),0))) + (0.3 * (SELECT IFNULL((SELECT integrity.nilai_integrity FROM integrity  ORDER BY integrity.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT usability.nilai_usability FROM usability  ORDER BY usability.id DESC LIMIT 1),0)))) / 5) * 100, 2)AS hasil_akhir");
+    $hasil_akhir = $koneksi->query("SELECT ROUND((((0.4 * (SELECT IFNULL((SELECT correctness.nilai_correctness FROM correctness ORDER BY correctness.id DESC LIMIT 1),0))) + (0.3 * (SELECT IFNULL((SELECT reliability.nilai_reliability FROM reliability ORDER BY reliability.id DESC LIMIT 1),0))) + (0.2 * (SELECT IFNULL((SELECT efficiency.nilai_efficiency FROM efficiency  ORDER BY efficiency.id DESC LIMIT 1),0))) + (0.1 * (SELECT IFNULL((SELECT integrity.nilai_integrity FROM integrity  ORDER BY integrity.id DESC LIMIT 1),0))) + (0.3 * (SELECT IFNULL((SELECT usability.nilai_usability FROM usability  ORDER BY usability.id DESC LIMIT 1),0)))) / 5) * 100, 2)AS hasil_akhir");
 
     $data_akhir = mysqli_fetch_array($hasil_akhir);
 // }

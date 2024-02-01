@@ -75,6 +75,7 @@ if (isset($_POST['simpan'])) { //untuk create
     } else {
         $error = "Silakan masukkan semua data";
     }
+       // Add these lines to send a response message to the client-side
 }
 ?>
 <!DOCTYPE html>
@@ -95,70 +96,6 @@ if (isset($_POST['simpan'])) { //untuk create
 
 <body>
     <div class="mx-auto">
-        <!-- untuk memasukkan data -->
-        <!-- <div class="card border-success">
-            <div class="card-header text-white bg-success">
-                Input Pertanyaan
-            </div>
-            <div class="card-body">
-                <?php
-                if ($error) {
-                ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <?php echo $error ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                    // header("refresh:5;url=pertanyaan.php");//5 : detik
-                }
-                ?>
-                <?php
-                if ($sukses) {
-                ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <?php echo $sukses ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                    // header("refresh:5;url=pertanyaan.php");
-                }
-                ?>
-                <form action="" method="POST">
-                    <div class="mb-3 row">
-                        <label for="id_pertanyaan" class="col-sm-2 col-form-label">Id_Pertanyaan</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_pertanyaan" name="id_pertanyaan"
-                                value="<?php echo $id_pertanyaan ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="sub_indikator" class="col-sm-2 col-form-label">Sub Indikator</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="sub_indikator" name="sub_indikator"
-                                value="<?php echo $sub_indikator ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="pertanyaan" class="col-sm-2 col-form-label">Pertanyaan</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pertanyaan" name="pertanyaan"
-                                value="<?php echo $pertanyaan ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="bobot_pertanyaan" class="col-sm-2 col-form-label">Bobot Pertanyaan</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="bobot_pertanyaan" name="bobot_pertanyaan"
-                                value="<?php echo $bobot_pertanyaan ?>">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <input type="submit" name="simpan" value="Save" class="btn btn-outline-success" />
-                    </div>
-                </form>
-            </div>
-        </div> -->
-
         <!-- untuk mengeluarkan data -->
         <div class="card border-success">
             <div class="card-header text-white bg-success">
@@ -203,34 +140,71 @@ if (isset($_POST['simpan'])) { //untuk create
                         </tbody>
                     </table>
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit Average</button>
+                    <button type="submit" class="btn btn-primary" id="submitAverage">Submit Average</button>
                 </form>
-              
-
             </div>
         </div>
     </div>
 </body>
 <script>
-    // Function to show SweetAlert success message
-    function showSuccessMessage() {
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Submitted successfully.',
-            showConfirmButton: false,
-            timer: 1500
+    document.addEventListener('DOMContentLoaded', function () {
+        const averageForm = document.getElementById('averageForm');
+
+        averageForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to submit the form. Proceed?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, submit it!'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    // Submit the form
+                    const formData = new FormData(averageForm);
+
+                    fetch('handle_hitung.php', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        if (data && 'error' in data) {
+                            console.error('Error:', data.error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'An error occurred while updating data.',
+                            });
+                        } else if (data && 'sukses' in data) {
+                            console.log('Success:', data.sukses);
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: data.sukses,
+                                confirmButtonText: 'OK' // Add this line to customize the confirm button text
+                            }).then(function () {
+                                // Redirect to the dashboard page
+                                window.location.href = 'dashboard.php';
+                            });
+                        }
+                    })
+                    .catch(function (error) {
+                        console.error('Fetch error:', error);
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'An error occurred while processing your request.',
+                        });
+                    });
+                }
+            });
         });
-    }
-
-    // Event listener for the form submission
-    document.getElementById('averageForm').addEventListener('submit', function (event) {
-        // Prevent the default form submission
-        event.preventDefault();
-
-        // Your form submission logic here
-
-        // Show SweetAlert success message
-        showSuccessMessage();
     });
 </script>
