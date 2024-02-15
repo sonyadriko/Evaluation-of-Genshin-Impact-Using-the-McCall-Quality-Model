@@ -1,34 +1,37 @@
 <?php
+// Include your database connection here
 include 'model/koneksi.php';
 
+
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the submitted realisasi values and corresponding id_peta_strategi values
-    $averageValues = $_POST['inputAverage'];
-    $idPertanyaan = $_POST['idPertanyaan'];
+    // Generate a unique session ID
+    $id_sesi = uniqid();
 
-    // Initialize response array
-    $response = array();
+    // Retrieve the submitted values
+    $idPertanyaan = $_POST["idPertanyaan"];
+    $inputAverage = $_POST["inputAverage"];
 
-    // Loop through the values and update the database
-    for ($i = 0; $i < count($averageValues); $i++) {
-        $average = mysqli_real_escape_string($koneksi, $averageValues[$i]);
-        $idPetaStrategi = mysqli_real_escape_string($koneksi, $idPertanyaan[$i]);
+    // Loop through the submitted values and insert into the database
+    foreach ($idPertanyaan as $index => $id) {
+        $hasilJawaban = mysqli_real_escape_string($koneksi, $inputAverage[$index]);
+        // $hasilJawaban = isset($inputAverage[$index]) ? mysqli_real_escape_string($koneksi, $inputAverage[$index]) : '';
 
-        // Update the realisasi in the database
-        $updateQuery = "UPDATE pertanyaan SET input = '$average' WHERE id = $idPetaStrategi";
-        $result = mysqli_query($koneksi, $updateQuery);
+        // Assuming your table is named 'hasil_form'
+        $sqlInsert = "INSERT INTO hasil_form (id_sesi, id_pertanyaan, hasil_jawaban) VALUES ('$id_sesi', '$id', '$hasilJawaban')";
 
-        // Check for errors
-        if (!$result) {
-            $response['error'] = "Error updating data for ID $idPetaStrategi: " . mysqli_error($koneksi);
-            echo json_encode($response);
-            exit();
-        }
+        // Execute the query
+        mysqli_query($koneksi, $sqlInsert);
     }
 
-    // Respond with a JSON object indicating success
-    $response['sukses'] = 'Data successfully updated';
-    echo json_encode($response);
+    // Close the database connection
+    mysqli_close($koneksi);
+
+    // Redirect or perform any other actions after successful insertion
+    header("Location: dashboard.php");
     exit();
+} else {
+    // Handle the case when the form is not submitted
+    echo "Form not submitted.";
 }
 ?>

@@ -109,12 +109,7 @@ if (isset($_POST['simpan'])) { //untuk create
                                 <th scope="col">No.</th>
                                 <!-- <th scope="col">Indikator</th> -->
                                 <th scope="col">Pertanyaan</th>
-                            </tr>
-                            <tr>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                                <!-- <th scope="col">Average</th> -->
-                                
+                                <th scope="col">Average</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,32 +129,43 @@ if (isset($_POST['simpan'])) { //untuk create
                                 <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
                                 <!-- <td scope="row"><?php echo $sub_indikator ?></td> -->
                                 <td scope="row"><?php echo $pertanyaan ?></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="sangat_tidak_setuju" required>
-                                        <label class="form-check-label">Sangat Tidak Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="tidak_setuju" required>
-                                        <label class="form-check-label">Tidak Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="cukup" required>
-                                        <label class="form-check-label">Cukup</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="setuju" required>
-                                        <label class="form-check-label">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="sangat_setuju" required>
-                                        <label class="form-check-label">Sangat Setuju</label>
-                                    </div>
-                                    <input type="hidden" name="idPertanyaan[]" value="<?php echo $id_pertanyaan; ?>">
-                                </td>
+                                <input type="hidden" name="idPertanyaan[]" value="<?php echo $id; ?>">
+                                    <!-- <td>
+                                        <input type="text" class="form-control" name="inputAverage[]" aria-describedby="inputAverage" required>
+                                    </td> -->
+                                    <!-- <td>
+    <select class="form-control" name="inputAverage[]" required>
+        <option value="sangat_tidak_setuju">Sangat Tidak Setuju</option>
+        <option value="tidak_setuju">Tidak Setuju</option>
+        <option value="cukup">Cukup</option>
+        <option value="setuju">Setuju</option>
+        <option value="sangat_setuju">Sangat Setuju</option>
+    </select>
+</td> -->
+<td>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="sangat_tidak_setuju" required>
+        <label class="form-check-label">Sangat Tidak Setuju</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="tidak_setuju" required>
+        <label class="form-check-label">Tidak Setuju</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="cukup" required>
+        <label class="form-check-label">Cukup</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="setuju" required>
+        <label class="form-check-label">Setuju</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="sangat_setuju" required>
+        <label class="form-check-label">Sangat Setuju</label>
+    </div>
+</td>
+
+
                             </tr>
                             <?php
                             }
@@ -173,4 +179,65 @@ if (isset($_POST['simpan'])) { //untuk create
         </div>
     </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const averageForm = document.getElementById('averageForm');
 
+        averageForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to submit the form. Proceed?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, submit it!'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    // Submit the form
+                    const formData = new FormData(averageForm);
+
+                    fetch('handle_hitung.php', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        if (data && 'error' in data) {
+                            console.error('Error:', data.error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'An error occurred while updating data.',
+                            });
+                        } else if (data && 'sukses' in data) {
+                            console.log('Success:', data.sukses);
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: data.sukses,
+                                confirmButtonText: 'OK' // Add this line to customize the confirm button text
+                            }).then(function () {
+                                // Redirect to the dashboard page
+                                window.location.href = 'dashboard.php';
+                            });
+                        }
+                    })
+                    .catch(function (error) {
+                        console.error('Fetch error:', error);
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'An error occurred while processing your request.',
+                        });
+                    });
+                }
+            });
+        });
+    });
+</script>
