@@ -12,71 +12,7 @@
 <!-- Main content -->
 <?php
 $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
-$id_pertanyaan      = "";
-$sub_indikator      = "";
-$pertanyaan         = "";
-$bobot_pertanyaan   = "";
-$sukses             = "";
-$error              = "";
 
-if (isset($_GET['op'])) {
-    $op = $_GET['op'];
-} else {
-    $op = "";
-}
-if($op == 'delete'){
-    $id         = $_GET['id'];
-    $sql1       = "delete from pertanyaan where id = '$id'";
-    $q1         = mysqli_query($koneksi,$sql1);
-    if($q1){
-        $sukses = "Berhasil hapus data";
-    }else{
-        $error  = "Gagal melakukan delete data";
-    }
-}
-if ($op == 'edit') {
-    $id                 = $_GET['id'];
-    $sql1               = "select * from pertanyaan where id = '$id'";
-    $q1                 = mysqli_query($koneksi, $sql1);
-    $r1                 = mysqli_fetch_array($q1);
-    $id_pertanyaan      = $r1['id_pertanyaan'];
-    $sub_indikator      = $r1['sub_indikator'];
-    $pertanyaan         = $r1['pertanyaan'];
-    $bobot_pertanyaan   = $r1['bobot_pertanyaan'];
-    
-    if ($id_pertanyaan == '') {
-        $error = "Data tidak ditemukan";
-    }
-}
-if (isset($_POST['simpan'])) { //untuk create
-    $id_pertanyaan      = $_POST['id_pertanyaan'];
-    $sub_indikator      = $_POST['sub_indikator'];
-    $pertanyaan         = $_POST['pertanyaan'];
-    $bobot_pertanyaan   = $_POST['bobot_pertanyaan'];
-    
-    if ($id_pertanyaan && $sub_indikator && $pertanyaan && $bobot_pertanyaan) {
-        if ($op == 'edit') { //untuk update
-            $sql1       = "update pertanyaan set id_pertanyaan = '$id_pertanyaan',sub_indikator  = '$sub_indikator ',pertanyaan = '$pertanyaan',bobot_pertanyaan = '$bobot_pertanyaan' where id = $id";
-            $q1         = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses = "Data berhasil diupdate";
-            } else {
-                $error  = "Data gagal diupdate";
-            }
-        } else { //untuk insert
-            $sql1   = "insert into pertanyaan(id_pertanyaan,sub_indikator,pertanyaan ,bobot_pertanyaan) values ('$id_pertanyaan ','$sub_indikator','$pertanyaan','$bobot_pertanyaan')";
-            $q1     = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses     = "Berhasil memasukkan data baru";
-            } else {
-                $error      = "Gagal memasukkan data";
-            }
-        }
-    } else {
-        $error = "Silakan masukkan semua data";
-    }
-       // Add these lines to send a response message to the client-side
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +32,6 @@ if (isset($_POST['simpan'])) { //untuk create
 
 <body>
     <div class="mx-auto">
-        <!-- untuk mengeluarkan data -->
         <div class="card border-success">
             <div class="card-header text-white bg-success">
                 Data Pertanyaan
@@ -107,14 +42,11 @@ if (isset($_POST['simpan'])) { //untuk create
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
-                                <!-- <th scope="col">Indikator</th> -->
                                 <th scope="col">Pertanyaan</th>
                             </tr>
                             <tr>
                             <th scope="col"></th>
                             <th scope="col"></th>
-                                <!-- <th scope="col">Average</th> -->
-                                
                             </tr>
                         </thead>
                         <tbody>
@@ -125,15 +57,12 @@ if (isset($_POST['simpan'])) { //untuk create
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $id                 = $r2['id'];
                                 $id_pertanyaan      = $r2['id_pertanyaan'];
-                                $sub_indikator      = $r2['sub_indikator'];
                                 $pertanyaan         = $r2['pertanyaan'];
-                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
                             ?>
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
-                                <!-- <td scope="row"><?php echo $id_pertanyaan ?></td> -->
-                                <!-- <td scope="row"><?php echo $sub_indikator ?></td> -->
                                 <td scope="row"><?php echo $pertanyaan ?></td>
+
                             </tr>
                             <tr>
                                 <td></td>
@@ -158,7 +87,7 @@ if (isset($_POST['simpan'])) { //untuk create
                                         <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="sangat_setuju" required>
                                         <label class="form-check-label">Sangat Setuju</label>
                                     </div>
-                                    <input type="hidden" name="idPertanyaan[]" value="<?php echo $id_pertanyaan; ?>">
+                                    <input type="hidden" name="idPertanyaan[]" value="<?php echo $id; ?>">
                                 </td>
                             </tr>
                             <?php
