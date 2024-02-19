@@ -75,6 +75,14 @@ if (!isset($_SESSION['username'])) {
                         </p>
                     </a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a href="?page=average" class="nav-link ">
+                        <i class="nav-icon far fa-keyboard"></i>
+                        <p>
+                            Average
+                        </p>
+                    </a>
+                </li> -->
                 <li class="nav-item">
                     <a href="?page=hasil" class="nav-link ">
                         <i class="nav-icon far fa-keyboard"></i>

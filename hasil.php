@@ -36,35 +36,179 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                 Hasil Hitung
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Sesi</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                  <!-- <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody> -->
                         <?php
-                        $sql2   = "select DISTINCT id_sesi from hasil_form order by id_sesi asc";
-                        $q2     = mysqli_query($koneksi, $sql2);
-                        $urut   = 1;
-                        while ($r2 = mysqli_fetch_array($q2)) {
-                            $id = $r2['id_sesi'];
+                            $sql2 = "SELECT * FROM pertanyaan 
+                            WHERE id BETWEEN 0 AND 11";                   
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil1 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $indikator = $r2['sub_indikator'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $hasiljawaban = $r2['average'];
+                                $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
+                                $hasilbaru1_rounded = number_format($hasilbaru1, 2);
+                                $totalHasil1 += $hasilbaru1_rounded;
 
-                        ?>
-                        <tr>
-                            <th scope="row"><?php echo $urut++ ?></th>
-                            <td scope="row"><?php echo $id ?></td>
-                            <td scope="row">
-                                <a href='detail_hasil.php?GetID=<?php echo $id ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Detail' id='detailbtn' class="btn btn-primary btn-user" ></a>
-                            </td>
-                        </tr>
+                            ?>
+                            <!-- <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table> -->
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Completeness: <?php echo $totalHasil1 ?> </p>
+
+
+                    <!-- <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody> -->
                         <?php
+                            $sql2 = "SELECT * FROM pertanyaan 
+                            WHERE id BETWEEN 12 AND 17";                   
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil2 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $indikator = $r2['sub_indikator'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $hasiljawaban = $r2['average'];
+                                $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
+                                $hasilbaru1_rounded = number_format($hasilbaru1, 2);
+                                $totalHasil2 += $hasilbaru1_rounded;
+
+                            ?>
+                            <!-- <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table> -->
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Consistency: <?php echo $totalHasil2 ?> </p>
+
+
+                    <!-- <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody> -->
+                        <?php
+                            $sql2 = "SELECT * FROM pertanyaan 
+                            WHERE id BETWEEN 18 AND 22";                   
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil3 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $indikator = $r2['sub_indikator'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $hasiljawaban = $r2['average'];
+                                $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
+                                $hasilbaru1_rounded = number_format($hasilbaru1, 2);
+                                $totalHasil3 += $hasilbaru1_rounded;
+
+                            ?>
+                            <!-- <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table> -->
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Tracebility: <?php echo $totalHasil3 ?> </p>
+
+                    <?php
+                        $ketemu = ($totalHasil1 + $totalHasil2 + $totalHasil3) / 3;
+                        $hasilketemu = min($ketemu, 5);
+                        $hasilketemu = number_format($hasilketemu, 2);
+                        $nilaidapat = ($hasilketemu / 5) * 100;
+                        $roundedHasilnya = round($nilaidapat);
+
+                        if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
+                            $k_corec = "Sangat Baik";
+                        } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
+                            $k_corec = "Baik";
+                        } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
+                            $k_corec = "Cukup Baik";
+                        } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
+                            $k_corec = "Tidak Baik";
+                        } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
+                            $k_corec = "Sangat Tidak Baik";
+                        } else {
+                            $k_corec = "";
                         }
-                        ?>
-                    </tbody>
-                </table>
+  
+                    ?>
+                    <p style="font-weight:bold;" class="mt-4"> Nilai Correctness: <?php echo $hasilketemu ?> </p>
+                    <p style="font-weight:bold;" class="mt-4"> Presentase Correctness: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+
+                    <!-- <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Indikator</th>
+                                <th scope="col">Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody> -->
+                        <?php
+                            $sql2 = "SELECT * FROM pertanyaan 
+                            WHERE id BETWEEN 23 AND 27";                   
+                            $q2     = mysqli_query($koneksi, $sql2);
+                            $urut   = 1;
+                            $totalHasil4 = 0;
+                            while ($r2 = mysqli_fetch_array($q2)) {
+                                $indikator = $r2['sub_indikator'];
+                                $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $hasiljawaban = $r2['average'];
+                                $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
+                                $hasilbaru1_rounded = number_format($hasilbaru1, 2);
+                                $totalHasil4 += $hasilbaru1_rounded;
+
+                            ?>
+                            <!-- <tr>
+                                <th scope="row"><?php echo $urut++ ?></th>
+                                <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table> -->
+                    <p style="font-weight:bold;" class="mt-4"> Hasil Tracebility: <?php echo $totalHasil4 ?> </p>
+
+
             </div>
         </div>
     </div>

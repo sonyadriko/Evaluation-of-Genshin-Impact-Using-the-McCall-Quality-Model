@@ -46,6 +46,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    for ($id_pertanyaan = 0; $id_pertanyaan <= 69; $id_pertanyaan++) {
+        // Query untuk menghitung nilai kriteria untuk setiap pertanyaan
+        $sql1 = "SELECT AVG(hasil_jawaban) as nilai_rata FROM hasil_form WHERE id_pertanyaan = $id_pertanyaan";
+        $result1 = mysqli_query($koneksi, $sql1);
+        $row1 = mysqli_fetch_assoc($result1);
+        $nilai_rata = $row1['nilai_rata'];
+    
+        // Query untuk memperbarui kolom average di tabel pertanyaan
+        $sql2 = "UPDATE pertanyaan SET average = $nilai_rata WHERE id = $id_pertanyaan";
+        mysqli_query($koneksi, $sql2);
+    }
+    
+
     // Close the database connection
     mysqli_close($koneksi);
 
