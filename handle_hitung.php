@@ -1,4 +1,3 @@
-
 <?php
 // Include your database connection here
 include 'model/koneksi.php';
@@ -10,20 +9,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r($_POST);
     echo '</pre>';
 
-    // Generate a unique session ID
-    $id_sesi = uniqid();
-
     // Retrieve the submitted values
     $idPertanyaan = $_POST["idPertanyaan"];
     $inputAverage = $_POST["inputAverage"];
 
-    // Debugging: Print individual values
-    echo "idPertanyaan: ";
-    print_r($idPertanyaan);
-    echo "<br>";
+    // Get the latest session ID from the database and increment it by 1
+    $queryLatestId = "SELECT MAX(id_sesi) AS max_id FROM hasil_form";
+    $resultLatestId = mysqli_query($koneksi, $queryLatestId);
+    $rowLatestId = mysqli_fetch_assoc($resultLatestId);
+    $id_sesi = $rowLatestId['max_id'] + 1;
 
-    echo "inputAverage: ";
-    print_r($inputAverage);
+    // Debugging: Print individual values
+    echo "id_sesi: ";
+    print_r($id_sesi);
     echo "<br>";
 
     // Loop through the submitted values and insert into the database

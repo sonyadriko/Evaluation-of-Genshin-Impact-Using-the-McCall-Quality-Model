@@ -56,7 +56,6 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             $urut   = 1;
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $id                 = $r2['id'];
-                                $id_pertanyaan      = $r2['id_pertanyaan'];
                                 $pertanyaan         = $r2['pertanyaan'];
                             ?>
                             <tr>
