@@ -5,9 +5,9 @@ include 'model/koneksi.php';
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Debugging: Print the entire $_POST array
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($_POST);
+    // echo '</pre>';
 
     // Retrieve the submitted values
     $idPertanyaan = $_POST["idPertanyaan"];
@@ -20,14 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_sesi = $rowLatestId['max_id'] + 1;
 
     // Debugging: Print individual values
-    echo "id_sesi: ";
-    print_r($id_sesi);
-    echo "<br>";
+    // echo "id_sesi: ";
+    // // print_r($id_sesi);
+    // echo "<br>";
 
     // Loop through the submitted values and insert into the database
     foreach ($idPertanyaan as $index => $id) {
         // Debugging: Print the current index and ID
-        echo "Index: $index, ID: $id<br>";
+        // echo "Index: $index, ID: $id<br>";
 
         // Check if the index exists in inputAverage array
         if (isset($inputAverage[$index])) {
@@ -38,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Execute the query
             mysqli_query($koneksi, $sqlInsert);
+
+
         } else {
             // Debugging: Print a message if inputAverage is not set for the current index
             echo "Warning: inputAverage[$index] is not set<br>";

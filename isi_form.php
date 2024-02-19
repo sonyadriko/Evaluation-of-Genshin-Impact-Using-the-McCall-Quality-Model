@@ -67,23 +67,23 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                                 <td></td>
                                 <td>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="sangat_tidak_setuju" required>
+                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="1" required>
                                         <label class="form-check-label">Sangat Tidak Setuju</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="tidak_setuju" required>
+                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="2" required>
                                         <label class="form-check-label">Tidak Setuju</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="cukup" required>
+                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="3" required>
                                         <label class="form-check-label">Cukup</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="setuju" required>
+                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="4" required>
                                         <label class="form-check-label">Setuju</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="sangat_setuju" required>
+                                        <input type="radio" class="form-check-input" name="inputAverage[<?php echo $id; ?>]" value="5" required>
                                         <label class="form-check-label">Sangat Setuju</label>
                                     </div>
                                     <input type="hidden" name="idPertanyaan[]" value="<?php echo $id; ?>">

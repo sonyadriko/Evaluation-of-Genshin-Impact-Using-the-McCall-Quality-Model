@@ -75,23 +75,24 @@ if (!isset($_SESSION['username'])) {
                         </p>
                     </a>
                 </li>
-                <?php } ?>
                 <li class="nav-item">
+                    <a href="?page=hasil" class="nav-link ">
+                        <i class="nav-icon far fa-keyboard"></i>
+                        <p>
+                            Hasil
+                        </p>
+                    </a>
+                </li>
+                <?php } ?>
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Penilaian
                             <i class="fas fa-angle-left right"></i>
-                            <!-- <span class="badge badge-info right">6</span> -->
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <!-- <li class="nav-item">
-                            <a href="?page=pages/inputform/penilaian/tambah_ujikelayakan" class="nav-link">
-                                <i class="fas fa-circle nav-icon"></i>
-                                <p>Halaman Uji</p>
-                            </a>
-                        </li> -->
                         <li class="nav-item">
                             <a href="?page=pages/inputform/penilaian/correctness" class="nav-link">
                                 <i class="fas fa-circle nav-icon"></i>
@@ -129,7 +130,7 @@ if (!isset($_SESSION['username'])) {
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="?page=logout" class="nav-link ">
                         <i class="nav-icon far fa-keyboard"></i>
