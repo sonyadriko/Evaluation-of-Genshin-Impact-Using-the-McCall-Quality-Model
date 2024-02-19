@@ -123,7 +123,7 @@ if (!isset($_SESSION['username'])) {
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="?page=pages/inputform/penilaian/hasil_akhir" class="small-box-footer">Klik <i
+                    <a href="?page=hasil" class="small-box-footer">Klik <i
                             class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
