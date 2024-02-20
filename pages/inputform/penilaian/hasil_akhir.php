@@ -77,14 +77,14 @@
             <div class="card-body">
                 <form action="" method="POST">
                     <div class="mb-3 row">
-                        <!-- <div class="col order">
+                        <div class="col order">
                             <div class="mb-3 row">
                                 <label for="" class="col-sm-2 col-form-label">Pilih Nama Uji</label>
                                 <div class="col-sm-10">
-                                    <!-- 
+                               <!--    
                             <input name="cmd_show" type="text" value="true" />
                                     <select class="form-control" name="uji">
-                                        <option value="">- Pilih -</option>
+                                        <option value="">- Pilih -</option> 
                                         <?php
                                 include '/../../../model/koneksi.php';
 
@@ -98,7 +98,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <!--  <a href=""><button type="button" class="btn btn-outline-primary">Tampil</button></a> 
+                              <a href=""><button type="button" class="btn btn-outline-primary">Tampil</button></a> 
                             <input type="submit" name="tampil" value="Tampil" class="btn btn-outline-primary" />
                         </div> -->
                         <hr>
@@ -302,17 +302,17 @@
                         </div>
                         <hr>
                         <div class="col order">
-                            <!-- <input type="submit" name="save" value="Save" class="btn btn-outline-success" /> -->
-                            <!--     <a href="#"><button type="button" class="btn btn-outline-success">Save</button></a> -->
+                            <input type="submit" name="save" value="Save" class="btn btn-outline-success" />
+                            <a href="#"><button type="button" class="btn btn-outline-success">Save</button></a> 
                             <a href="cetak_laporan.php?uji=<?= (isset($uji))? $uji : "" ?>" id="tmbl_cetak"
                                 target="_blank"><button type="button" class="btn btn-outline-warning">Cetak
                                     Laporan</button></a>
 
-                            <!--   <script type="text/javascript">
+                            <script type="text/javascript">
         function changeLink(ini) {
             $('#tmbl_cetak').attr("cetak_laporan.php?uji="+$(ini).val())
         }
-    </script> -->
+    </script>
                         </div>
                 </form>
             </div>

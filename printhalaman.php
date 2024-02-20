@@ -1,21 +1,3 @@
-<style>
-    .cetak-link {
-        text-decoration: none; /* Menghilangkan garis bawah tautan */
-        color: #007bff; /* Warna tautan (biru) */
-        font-weight: bold; /* Membuat teks cetak lebih tebal */
-        padding: 5px 10px; /* Memberikan padding agar tautan lebih mudah diakses */
-        border: 1px solid #007bff; /* Menambahkan border untuk memberikan tampilan yang jelas */
-        border-radius: 5px; /* Memberikan sudut yang melengkung pada border */
-        background-color: #fff; /* Warna latar belakang tautan */
-        transition: background-color 0.3s ease-in-out; /* Animasi perubahan warna latar belakang saat dihover */
-    }
-
-    .cetak-link:hover {
-        background-color: #007bff; /* Warna latar belakang saat dihover */
-        color: #fff; /* Warna teks saat dihover */
-    }
-</style>
-
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -652,11 +634,12 @@ $hasilstatus = "";
 
 ?>
 <p style="font-weight:bold; font-size:20px;" class="mt-4"> Hasil Status: <?php echo $hasilstatus ?></p>
-<a href="printhalaman.php" target="_blank" class="cetak-link">Cetak</a>
-
 
 
             </div>
         </div>
     </div>
 </body>
+<script>
+    window.print();
+    </script>

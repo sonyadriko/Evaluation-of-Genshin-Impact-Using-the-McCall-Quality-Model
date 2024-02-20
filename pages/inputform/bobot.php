@@ -92,7 +92,7 @@ if (isset($_POST['simpan'])) { //untuk create
 <body>
     <div class="mx-auto">
         <!-- untuk memasukkan data -->
-        <!-- <div class="card border-success">
+        <div class="card border-success">
             <div class="card-header text-white bg-success">
                 Input Bobot
             </div>
@@ -147,7 +147,7 @@ if (isset($_POST['simpan'])) { //untuk create
                     </div>
                 </form>
             </div>
-        </div> -->
+        </div>
 
         <!-- untuk mengeluarkan data -->
         <div class="card border-success">
@@ -181,13 +181,13 @@ if (isset($_POST['simpan'])) { //untuk create
                             <!-- <td scope="row"><?php echo $id_bobot ?></td> -->
                             <td scope="row"><?php echo $bobot ?></td>
                             <td scope="row"><?php echo $keterangan ?></td>
-                            <!-- <td scope="row">
+                            <td scope="row">
                                 <a href="?page=pages/inputform/bobot&op=edit&id=<?php echo $id?>"><button type="button"
                                         class="btn btn-outline-warning">Edit</button></a>
                                 <a href="?page=pages/inputform/bobot&op=delete&id=<?php echo $id?>"
                                     onclick="return confirm('Yakin mau delete data?')"><button type="button"
                                         class="btn btn-outline-danger">Delete</button></a>
-                            </td> -->
+                            </td>
                         </tr>
                         <?php
                         }

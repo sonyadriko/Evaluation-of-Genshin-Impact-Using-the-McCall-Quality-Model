@@ -92,7 +92,7 @@ if (isset($_POST['simpan'])) { //untuk create
 <body>
     <div class="mx-auto">
         <!-- untuk memasukkan data -->
-        <!-- <div class="card border-success">
+        < <div class="card border-success">
             <div class="card-header text-white bg-success">
                 Input Kategori Kelayakan
             </div>
@@ -106,7 +106,7 @@ if (isset($_POST['simpan'])) { //untuk create
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
-                    // header("refresh:5;url=katkel.php");//5 : detik
+                   // header("refresh:5;url=katkel.php");//5 : detik
                 }
                 ?>
                 <?php
@@ -118,7 +118,7 @@ if (isset($_POST['simpan'])) { //untuk create
                 </div>
 
                 <?php
-                    // header("refresh:5;url=?page=pages/inputform/katkel");
+                   // header("refresh:5;url=?page=pages/inputform/katkel");
                 }
                 ?>
 
@@ -152,7 +152,7 @@ if (isset($_POST['simpan'])) { //untuk create
                     </div>
                 </form>
             </div>
-        </div> -->
+        </div>
 
         <!-- untuk mengeluarkan data -->
         <div class="card border-success">
@@ -183,16 +183,16 @@ if (isset($_POST['simpan'])) { //untuk create
                         ?>
                         <tr>
                             <th scope="row"><?php echo $urut++ ?></th>
-                            <!-- <td scope="row"><?php echo $id_kk ?></td> -->
+                            <td scope="row"><?php echo $id_kk ?></td>
                             <td scope="row"><?php echo $kategori ?></td>
                             <td scope="row"><?php echo $persentasi ?></td>
-                            <!-- <td scope="row">
+                            <td scope="row">
                                 <a href="?page=pages/inputform/katkel&op=edit&id=<?php echo $id ?>"><button
                                         type="button" class="btn btn-outline-warning">Edit</button></a>
                                 <a href="?page=pages/inputform/katkel&op=delete&id=<?php echo $id?>"
                                     onclick="return confirm('Yakin mau delete data?')"><button type="button"
                                         class="btn btn-outline-danger">Delete</button></a>
-                            </td> -->
+                            </td>
                         </tr>
                         <?php
                         }
