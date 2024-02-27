@@ -12,7 +12,6 @@
 <!-- Main content -->
 <?php
 $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
-$id_bobot   = "";
 $bobot      = "";
 $keterangan = "";
 $sukses     = "";
@@ -38,22 +37,16 @@ if ($op == 'edit') {
     $sql1       = "select * from tbl_bobot where id = '$id'";
     $q1         = mysqli_query($koneksi, $sql1);
     $r1         = mysqli_fetch_array($q1);
-    $id_bobot   = $r1['id_bobot'];
     $bobot      = $r1['bobot'];
     $keterangan = $r1['keterangan'];
-
-    if ($id_bobot == '') {
-        $error = "Data tidak ditemukan";
-    }
 }
 if (isset($_POST['simpan'])) { //untuk create
-    $id_bobot    = $_POST['id_bobot'];
     $bobot       = $_POST['bobot'];
     $keterangan  = $_POST['keterangan'];
     
-    if ($id_bobot && $bobot && $keterangan) {
+    if ($bobot && $keterangan) {
         if ($op == 'edit') { //untuk update
-            $sql1       = "update tbl_bobot set id_bobot = '$id_bobot',bobot='$bobot',keterangan = '$keterangan' where id = $id";
+            $sql1       = "update tbl_bobot set bobot='$bobot',keterangan = '$keterangan' where id = $id";
             $q1         = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses = "Data berhasil diupdate";
@@ -61,7 +54,7 @@ if (isset($_POST['simpan'])) { //untuk create
                 $error  = "Data gagal diupdate";
             }
         } else { //untuk insert
-            $sql1   = "insert into tbl_bobot(id_bobot,bobot,keterangan) values ('$id_bobot','$bobot','$keterangan')";
+            $sql1   = "insert into tbl_bobot(bobot,keterangan) values ('$bobot','$keterangan')";
             $q1     = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses     = "Berhasil memasukkan data baru";
@@ -122,13 +115,6 @@ if (isset($_POST['simpan'])) { //untuk create
                 ?>
                 <form action="" method="POST">
                     <div class="mb-3 row">
-                        <label for="id_kk" class="col-sm-2 col-form-label">Id_Bobot</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_bobot" name="id_bobot"
-                                value="<?php echo $id_bobot ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
                         <label for="bobot" class="col-sm-2 col-form-label">Bobot</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="bobot" name="bobot"
@@ -159,26 +145,23 @@ if (isset($_POST['simpan'])) { //untuk create
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <!-- <th scope="col">Id_Bobot</th> -->
                             <th scope="col">Bobot</th>
                             <th scope="col">Keterangan</th>
-                            <!-- <th scope="col">Aksi</th> -->
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql2   = "select * from tbl_bobot order by id_bobot desc";
+                        $sql2   = "select * from tbl_bobot order by id desc";
                         $q2     = mysqli_query($koneksi, $sql2);
                         $urut   = 1;
                         while ($r2 = mysqli_fetch_array($q2)) {
                             $id          = $r2['id'];
-                            $id_bobot    = $r2['id_bobot'];
                             $bobot       = $r2['bobot'];
                             $keterangan  = $r2['keterangan'];
                         ?>
                         <tr>
                             <th scope="row"><?php echo $urut++ ?></th>
-                            <!-- <td scope="row"><?php echo $id_bobot ?></td> -->
                             <td scope="row"><?php echo $bobot ?></td>
                             <td scope="row"><?php echo $keterangan ?></td>
                             <td scope="row">

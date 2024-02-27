@@ -12,7 +12,6 @@
 <!-- Main content -->
 <?php
 $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
-$id_indikator   = "";
 $indikator      = "";
 $bobot          = "";
 $sukses         = "";
@@ -38,22 +37,16 @@ if ($op == 'edit') {
     $sql1           = "select * from indikator where id = '$id'";
     $q1             = mysqli_query($koneksi, $sql1);
     $r1             = mysqli_fetch_array($q1);
-    $id_indikator   = $r1['id_indikator'];
     $indikator      = $r1['indikator'];
     $bobot          = $r1['bobot'];
-
-    if ($id_indikator == '') {
-        $error = "Data tidak ditemukan";
-    }
 }
 if (isset($_POST['simpan'])) { //untuk create
-    $id_indikator = $_POST['id_indikator'];
     $indikator    = $_POST['indikator'];
     $bobot        = $_POST['bobot'];
     
-    if ($id_indikator && $indikator && $bobot) {
+    if ($indikator && $bobot) {
         if ($op == 'edit') { //untuk update
-            $sql1       = "update indikator set id_indikator = '$id_indikator',indikator = '$indikator',bobot = '$bobot' where id = $id";
+            $sql1       = "update indikator set indikator = '$indikator',bobot = '$bobot' where id = $id";
             $q1         = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses = "Data berhasil diupdate";
@@ -61,7 +54,7 @@ if (isset($_POST['simpan'])) { //untuk create
                 $error  = "Data gagal diupdate";
             }
         } else { //untuk insert
-            $sql1   = "insert into indikator(id_indikator,indikator,bobot) values ('$id_indikator','$indikator','$bobot')";
+            $sql1   = "insert into indikator(indikator,bobot) values ('$indikator','$bobot')";
             $q1     = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses     = "Berhasil memasukkan data baru";
@@ -92,7 +85,7 @@ if (isset($_POST['simpan'])) { //untuk create
 <body>
     <div class="mx-auto">
         <!-- untuk memasukkan data -->
-        < <div class="card border-success">
+        <div class="card border-success">
             <div class="card-header text-white bg-success">
                 Input Indikator
             </div>
@@ -122,13 +115,6 @@ if (isset($_POST['simpan'])) { //untuk create
                 }
                 ?>
                 <form action="" method="POST">
-                    <div class="mb-3 row">
-                        <label for="id_indikator" class="col-sm-2 col-form-label">Id_Indikator</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_indikator" name="id_indikator"
-                                value="<?php echo $id_indikator ?>">
-                        </div>
-                    </div>
                     <div class="mb-3 row">
                         <label for="indikator" class="col-sm-2 col-form-label">Indikator</label>
                         <div class="col-sm-10">
@@ -160,26 +146,23 @@ if (isset($_POST['simpan'])) { //untuk create
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <!-- <th scope="col">Id_Indikator</th> -->
                             <th scope="col">Indikator</th>
                             <th scope="col">Bobot</th>
-                            <!-- <th scope="col">Aksi</th> -->
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql2   = "select * from indikator order by id_indikator asc";
+                        $sql2   = "select * from indikator order by id asc";
                         $q2     = mysqli_query($koneksi, $sql2);
                         $urut   = 1;
                         while ($r2 = mysqli_fetch_array($q2)) {
                             $id             = $r2['id'];
-                            $id_indikator   = $r2['id_indikator'];
                             $indikator      = $r2['indikator'];
                             $bobot          = $r2['bobot'];
                         ?>
                         <tr>
                             <th scope="row"><?php echo $urut++ ?></th>
-                            <!-- <td scope="row"><?php echo $id_indikator ?></td> -->
                             <td scope="row"><?php echo $indikator ?></td>
                             <td scope="row"><?php echo $bobot ?></td>
                              <td scope="row">

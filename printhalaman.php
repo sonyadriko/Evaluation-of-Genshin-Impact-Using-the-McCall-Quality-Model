@@ -638,17 +638,17 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         }
                         
                     ?>
-                    <p style="font-weight:bold;" class="mt-4"> Nilai Usability: <?php echo $hasilketemu5 ?> </p>
-                    <p style="font-weight:bold;" class="mt-4"> Presentase Usability: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
-
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Nilai Usability: <?php echo $hasilketemu5 ?> </p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Presentase Usability: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <hr>
                     <?php 
                     
                         $hasilakhir = ((($hasilketemu) * 0.4) + (($hasilketemu2) * 0.3) + (($hasilketemu3) * 0.2) + (($hasilketemu4) * 0.1) + (($hasilketemu5) * 0.3) );
                         $hasilakhir2 = ($hasilakhir/5) * 100;
                         $hasilakhir2 = round($hasilakhir2,2);
                     ?>
-                    <p style="font-weight:bold; font-size:20px;" class="mt-4"> Hasil Akhir: <?php echo $hasilakhir2 ?>%</p>
+                    <p style="font-weight:bold; font-size:20px;text-align:center;" class="mt-4"> Hasil Akhir: <?php echo $hasilakhir2 ?>%</p>
 <?php
 $hasilstatus = "";
                     if ($hasilakhir2 >= 80 && $hasilakhir2hasilakhir2 <= 100) {
@@ -666,8 +666,8 @@ $hasilstatus = "";
 }
 
 ?>
-<p style="font-weight:bold; font-size:20px;" class="mt-4"> Hasil Status: <?php echo $hasilstatus ?></p>
-
+<p style="font-weight:bold; font-size:20px;text-align:center;" class="mt-4"> Hasil Status: <?php echo $hasilstatus ?></p>
+<hr>
 
             </div>
         </div>

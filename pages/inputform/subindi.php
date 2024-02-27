@@ -12,8 +12,6 @@
 <!-- Main content -->
 <?php
 $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
-$id_sub         = "";
-$id_indikator   = "";
 $indikator      = "";
 $sub_indikator  = "";
 $sukses         = "";
@@ -39,24 +37,16 @@ if ($op == 'edit') {
     $sql1           = "select * from sub_indikator where id = '$id'";
     $q1             = mysqli_query($koneksi, $sql1);
     $r1             = mysqli_fetch_array($q1);
-    $id_sub         = $r1['id_sub'];
-    $id_indikator   = $r1['id_indikator'];
     $indikator      = $r1['indikator'];
     $sub_indikator  = $r1['sub_indikator'];
-
-    if ($id_sub == '') {
-        $error = "Data tidak ditemukan";
-    }
 }
 if (isset($_POST['simpan'])) { //untuk create
-    $id_sub         = $_POST['id_sub'];
-    $id_indikator   = $_POST['id_indikator'];
     $indikator      = $_POST['indikator'];
     $sub_indikator  = $_POST['sub_indikator'];
     
-    if ($id_sub && $id_indikator && $indikator && $sub_indikator) {
+    if ($indikator && $sub_indikator) {
         if ($op == 'edit') { //untuk update
-            $sql1       = "update sub_indikator set id_sub = '$id_sub',id_indikator = '$id_indikator',indikator = '$indikator',sub_indikator = '$sub_indikator' where id = $id";
+            $sql1       = "update sub_indikator set indikator = '$indikator',sub_indikator = '$sub_indikator' where id = $id";
             $q1         = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses = "Data berhasil diupdate";
@@ -64,7 +54,7 @@ if (isset($_POST['simpan'])) { //untuk create
                 $error  = "Data gagal diupdate";
             }
         } else { //untuk insert
-            $sql1   = "insert into sub_indikator(id_sub,id_indikator,indikator,sub_indikator) values ('$id_sub','$id_indikator','$indikator','$sub_indikator')";
+            $sql1   = "insert into sub_indikator(indikator,sub_indikator) values ('$indikator','$sub_indikator')";
             $q1     = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses     = "Berhasil memasukkan data baru";
@@ -124,20 +114,6 @@ if (isset($_POST['simpan'])) { //untuk create
                 ?>
                 <form action="" method="POST">
                     <div class="mb-3 row">
-                        <label for="id_sub" class="col-sm-2 col-form-label">Id_Sub</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_sub" name="id_sub"
-                                value="<?php echo $id_sub ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="id_indikator" class="col-sm-2 col-form-label">Id Indikator</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_indikator" name="id_indikator"
-                                value="<?php echo $id_indikator ?>">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
                         <label for="indikator" class="col-sm-2 col-form-label">Indikator</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="indikator" name="indikator"
@@ -168,29 +144,23 @@ if (isset($_POST['simpan'])) { //untuk create
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <!-- <th scope="col">Id_Sub</th> -->
-                            <!-- <th scope="col">Id_Indikator</th> -->
                             <th scope="col">Indikator</th>
                             <th scope="col">Sub_Indikator</th>
-                            <!-- <th scope="col">Aksi</th> -->
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql2   = "select * from sub_indikator order by id_sub asc";
+                        $sql2   = "select * from sub_indikator order by id asc";
                         $q2     = mysqli_query($koneksi, $sql2);
                         $urut   = 1;
                         while ($r2 = mysqli_fetch_array($q2)) {
                             $id             = $r2['id'];
-                            $id_sub         = $r2['id_sub'];
-                            $id_indikator   = $r2['id_indikator'];
                             $indikator      = $r2['indikator'];
                             $sub_indikator  = $r2['sub_indikator'];
                         ?>
                         <tr>
                             <th scope="row"><?php echo $urut++ ?></th>
-                            <!-- <td scope="row"><?php echo $id_sub ?></td> -->
-                            <!-- <td scope="row"><?php echo $id_indikator ?></td> -->
                             <td scope="row"><?php echo $indikator ?></td>
                             <td scope="row"><?php echo $sub_indikator ?></td>
                             <td scope="row">

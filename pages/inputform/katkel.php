@@ -12,7 +12,6 @@
 <!-- Main content -->
 <?php
 $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
-$id_kk      = "";
 $kategori   = "";
 $persentasi = "";
 $sukses     = "";
@@ -38,22 +37,16 @@ if ($op == 'edit') {
     $sql1       = "select * from kategori_kelayakan where id = '$id'";
     $q1         = mysqli_query($koneksi, $sql1);
     $r1         = mysqli_fetch_array($q1);
-    $id_kk      = $r1['id_kk'];
     $kategori   = $r1['kategori'];
     $persentasi = $r1['persentasi'];
-
-    if ($id_kk == '') {
-        $error = "Data tidak ditemukan";
-    }
 }
 if (isset($_POST['simpan'])) { //untuk create
-    $id_kk       = $_POST['id_kk'];
     $kategori    = $_POST['kategori'];
     $persentasi  = $_POST['persentasi'];
     
-    if ($id_kk && $kategori && $persentasi) {
+    if ($kategori && $persentasi) {
         if ($op == 'edit') { //untuk update
-            $sql1       = "update kategori_kelayakan set id_kk = '$id_kk',kategori='$kategori',persentasi = '$persentasi' where id = $id";
+            $sql1       = "update kategori_kelayakan set kategori='$kategori',persentasi = '$persentasi' where id = $id";
             $q1         = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses = "Data berhasil diupdate";
@@ -61,7 +54,7 @@ if (isset($_POST['simpan'])) { //untuk create
                 $error  = "Data gagal diupdate";
             }
         } else { //untuk insert
-            $sql1   = "insert into kategori_kelayakan(id_kk,kategori,persentasi) values ('$id_kk','$kategori','$persentasi')";
+            $sql1   = "insert into kategori_kelayakan(kategori,persentasi) values ('$kategori','$persentasi')";
             $q1     = mysqli_query($koneksi, $sql1);
             if ($q1) {
                 $sukses     = "Berhasil memasukkan data baru";
@@ -92,7 +85,7 @@ if (isset($_POST['simpan'])) { //untuk create
 <body>
     <div class="mx-auto">
         <!-- untuk memasukkan data -->
-        < <div class="card border-success">
+        <div class="card border-success">
             <div class="card-header text-white bg-success">
                 Input Kategori Kelayakan
             </div>
@@ -121,18 +114,7 @@ if (isset($_POST['simpan'])) { //untuk create
                    // header("refresh:5;url=?page=pages/inputform/katkel");
                 }
                 ?>
-
-
-
-
                 <form action="" method="POST">
-                    <div class="mb-3 row">
-                        <label for="id_kk" class="col-sm-2 col-form-label">Id_kk</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="id_kk" name="id_kk"
-                                value="<?php echo $id_kk ?>">
-                        </div>
-                    </div>
                     <div class="mb-3 row">
                         <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
@@ -164,26 +146,23 @@ if (isset($_POST['simpan'])) { //untuk create
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
-                            <!-- <th scope="col">Id_KK</th> -->
                             <th scope="col">Kategori</th>
                             <th scope="col">Persentasi</th>
-                            <!-- <th scope="col">Aksi</th> -->
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql2   = "select * from kategori_kelayakan order by id_kk desc";
+                        $sql2   = "select * from kategori_kelayakan order by id desc";
                         $q2     = mysqli_query($koneksi, $sql2);
                         $urut   = 1;
                         while ($r2 = mysqli_fetch_array($q2)) {
                             $id            = $r2['id'];
-                            $id_kk         = $r2['id_kk'];
                             $kategori      = $r2['kategori'];
                             $persentasi    = $r2['persentasi'];
                         ?>
                         <tr>
                             <th scope="row"><?php echo $urut++ ?></th>
-                            <td scope="row"><?php echo $id_kk ?></td>
                             <td scope="row"><?php echo $kategori ?></td>
                             <td scope="row"><?php echo $persentasi ?></td>
                             <td scope="row">

@@ -92,7 +92,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Completeness: <?php echo $totalHasil1 ?> </p>
-
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -132,6 +132,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Consistency: <?php echo $totalHasil2 ?> </p>
+                    <hr>
 
 
                     <table class="table">
@@ -172,6 +173,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Tracebility: <?php echo $totalHasil3 ?> </p>
+                    <hr>
 
                     <?php
                         $ketemu = ($totalHasil1 + $totalHasil2 + $totalHasil3) / 3;
@@ -195,9 +197,10 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         }
   
                     ?>
-                    <p style="font-weight:bold;" class="mt-4"> Nilai Correctness: <?php echo $hasilketemu ?> </p>
-                    <p style="font-weight:bold;" class="mt-4"> Presentase Correctness: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Nilai Correctness: <?php echo $hasilketemu ?> </p>
+                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Presentase Correctness: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -237,8 +240,9 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Error tolerance: <?php echo $totalHasil4 ?> </p>
+                    <hr>
 
-                        <table class="table">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
@@ -276,6 +280,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Accuracy: <?php echo $totalHasil5 ?> </p>
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -315,6 +320,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Simplicity: <?php echo $totalHasil6 ?> </p>
+                    <hr>
 
                     <?php
                         $ketemu = ($totalHasil4 + $totalHasil5 + $totalHasil6) / 3;
@@ -342,9 +348,10 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         // echo "Kategori Kelayakan: $k_corec\n";
                         
                     ?>
-                    <p style="font-weight:bold;" class="mt-4"> Nilai Reliability: <?php echo $hasilketemu2 ?> </p>
-                    <p style="font-weight:bold;" class="mt-4"> Presentase Reliability: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Nilai Reliability: <?php echo $hasilketemu2 ?> </p>
+                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Presentase Reliability: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -383,6 +390,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Conciseness: <?php echo $totalHasil7 ?> </p>
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -421,6 +429,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Exection Efficiency: <?php echo $totalHasil8 ?> </p>
+                    <hr>
 
                     <?php
                         $ketemu = ($totalHasil7 + $totalHasil8) / 2;
@@ -448,9 +457,10 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         // echo "Kategori Kelayakan: $k_corec\n";
                         
                     ?>
-                    <p style="font-weight:bold;" class="mt-4"> Nilai Efficiency: <?php echo $hasilketemu3 ?> </p>
-                    <p style="font-weight:bold;" class="mt-4"> Presentase Efficiency: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Nilai Efficiency: <?php echo $hasilketemu3 ?> </p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Presentase Efficiency: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -489,6 +499,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Security: <?php echo $totalHasil9 ?> </p>
+                    <hr>
 
                     <?php
                         $ketemu = ($totalHasil9) / 1;
@@ -516,9 +527,10 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         // echo "Kategori Kelayakan: $k_corec\n";
                         
                     ?>
-                    <p style="font-weight:bold;" class="mt-4"> Nilai Integrity: <?php echo $hasilketemu4 ?> </p>
-                    <p style="font-weight:bold;" class="mt-4"> Presentase Integrity: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Nilai Integrity: <?php echo $hasilketemu4 ?> </p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Presentase Integrity: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -595,6 +607,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Training: <?php echo $totalHasil11 ?> </p>
+                    <hr>
 
                     <table class="table">
                         <thead>
@@ -633,6 +646,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Communicativeness: <?php echo $totalHasil12 ?> </p>
+                    <hr>
 
                     <?php
                         $ketemu = ($totalHasil10 + $totalHasil11 + $totalHasil12) / 3;
@@ -656,9 +670,10 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         }
                         
                     ?>
-                    <p style="font-weight:bold;" class="mt-4"> Nilai Usability: <?php echo $hasilketemu5 ?> </p>
-                    <p style="font-weight:bold;" class="mt-4"> Presentase Usability: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Nilai Usability: <?php echo $hasilketemu5 ?> </p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Presentase Usability: <?php echo $roundedHasilnya ?>%</p>
+                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <hr>
 
                     <?php 
                     
@@ -666,7 +681,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         $hasilakhir2 = ($hasilakhir/5) * 100;
                         $hasilakhir2 = round($hasilakhir2,2);
                     ?>
-                    <p style="font-weight:bold; font-size:20px;" class="mt-4"> Hasil Akhir: <?php echo $hasilakhir2 ?> %</p>
+                    <p style="font-weight:bold; font-size:20px; text-align:center;" class="mt-4"> Hasil Akhir: <?php echo $hasilakhir2 ?> %</p>
 <?php
 $hasilstatus = "";
                     if ($hasilakhir2 >= 80 && $hasilakhir2hasilakhir2 <= 100) {
@@ -684,7 +699,8 @@ $hasilstatus = "";
 }
 
 ?>
-<p style="font-weight:bold; font-size:20px;" class="mt-4"> Hasil Status: <?php echo $hasilstatus ?></p>
+<p style="font-weight:bold; font-size:20px; text-align:center;" class="mt-4"> Hasil Status: <?php echo $hasilstatus ?></p>
+<hr>
 <a href="printhalaman.php" target="_blank" class="cetak-link">Cetak</a>
 
 
