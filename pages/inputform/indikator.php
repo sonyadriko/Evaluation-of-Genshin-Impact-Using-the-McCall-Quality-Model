@@ -43,27 +43,35 @@ if ($op == 'edit') {
 if (isset($_POST['simpan'])) { //untuk create
     $indikator    = $_POST['indikator'];
     $bobot        = $_POST['bobot'];
-    
-    if ($indikator && $bobot) {
-        if ($op == 'edit') { //untuk update
-            $sql1       = "update indikator set indikator = '$indikator',bobot = '$bobot' where id = $id";
-            $q1         = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses = "Data berhasil diupdate";
-            } else {
-                $error  = "Data gagal diupdate";
-            }
-        } else { //untuk insert
-            $sql1   = "insert into indikator(indikator,bobot) values ('$indikator','$bobot')";
-            $q1     = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses     = "Berhasil memasukkan data baru";
-            } else {
-                $error      = "Gagal memasukkan data";
-            }
-        }
+
+    $sql_check   = "SELECT COUNT(*) as count FROM indikator WHERE indikator = '$indikator'";
+    $q_check     = mysqli_query($koneksi, $sql_check);
+    $r_check     = mysqli_fetch_assoc($q_check);
+
+    if ($r_check['count'] > 0) {
+        $error = "Indikator sudah ada, silakan masukkan indikator lain";
     } else {
-        $error = "Silakan masukkan semua data";
+        if ($indikator && $bobot) {
+            if ($op == 'edit') { //untuk update
+                $sql1       = "update indikator set indikator = '$indikator',bobot = '$bobot' where id = $id";
+                $q1         = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses = "Data berhasil diupdate";
+                } else {
+                    $error  = "Data gagal diupdate";
+                }
+            } else { //untuk insert
+                $sql1   = "insert into indikator(indikator,bobot) values ('$indikator','$bobot')";
+                $q1     = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses     = "Berhasil memasukkan data baru";
+                } else {
+                    $error      = "Gagal memasukkan data";
+                }
+            }
+        } else {
+            $error = "Silakan masukkan semua data";
+        }
     }
 }
 ?>

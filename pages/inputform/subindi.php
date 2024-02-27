@@ -43,27 +43,35 @@ if ($op == 'edit') {
 if (isset($_POST['simpan'])) { //untuk create
     $indikator      = $_POST['indikator'];
     $sub_indikator  = $_POST['sub_indikator'];
-    
-    if ($indikator && $sub_indikator) {
-        if ($op == 'edit') { //untuk update
-            $sql1       = "update sub_indikator set indikator = '$indikator',sub_indikator = '$sub_indikator' where id = $id";
-            $q1         = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses = "Data berhasil diupdate";
-            } else {
-                $error  = "Data gagal diupdate";
-            }
-        } else { //untuk insert
-            $sql1   = "insert into sub_indikator(indikator,sub_indikator) values ('$indikator','$sub_indikator')";
-            $q1     = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses     = "Berhasil memasukkan data baru";
-            } else {
-                $error      = "Gagal memasukkan data";
-            }
-        }
+
+    $sql_check   = "SELECT COUNT(*) as count FROM sub_indikator WHERE indikator = '$indikator' AND sub_indikator = '$sub_indikator'";
+    $q_check     = mysqli_query($koneksi, $sql_check);
+    $r_check     = mysqli_fetch_assoc($q_check);
+
+    if ($r_check['count'] > 0) {
+        $error = "Indikator dan sub indikator sudah ada, silakan masukkan data lain";
     } else {
-        $error = "Silakan masukkan semua data";
+        if ($indikator && $sub_indikator) {
+            if ($op == 'edit') { //untuk update
+                $sql1       = "update sub_indikator set indikator = '$indikator',sub_indikator = '$sub_indikator' where id = $id";
+                $q1         = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses = "Data berhasil diupdate";
+                } else {
+                    $error  = "Data gagal diupdate";
+                }
+            } else { //untuk insert
+                $sql1   = "insert into sub_indikator(indikator,sub_indikator) values ('$indikator','$sub_indikator')";
+                $q1     = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses     = "Berhasil memasukkan data baru";
+                } else {
+                    $error      = "Gagal memasukkan data";
+                }
+            }
+        } else {
+            $error = "Silakan masukkan semua data";
+        }
     }
 }
 ?>

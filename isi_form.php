@@ -28,6 +28,28 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+       <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("averageForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            Swal.fire({
+                title: 'Submit Average',
+                text: 'Are you sure you want to submit the average?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, submit it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If the user clicks "Yes, submit it!", proceed with the form submission
+                    this.submit();
+                }
+            });
+        });
+    });
+</script>
 </head>
 
 <body>

@@ -43,27 +43,35 @@ if ($op == 'edit') {
 if (isset($_POST['simpan'])) { //untuk create
     $kategori    = $_POST['kategori'];
     $persentasi  = $_POST['persentasi'];
-    
-    if ($kategori && $persentasi) {
-        if ($op == 'edit') { //untuk update
-            $sql1       = "update kategori_kelayakan set kategori='$kategori',persentasi = '$persentasi' where id = $id";
-            $q1         = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses = "Data berhasil diupdate";
-            } else {
-                $error  = "Data gagal diupdate";
-            }
-        } else { //untuk insert
-            $sql1   = "insert into kategori_kelayakan(kategori,persentasi) values ('$kategori','$persentasi')";
-            $q1     = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses     = "Berhasil memasukkan data baru";
-            } else {
-                $error      = "Gagal memasukkan data";
-            }
-        }
+
+    $sql_check   = "SELECT COUNT(*) as count FROM kategori_kelayakan WHERE kategori = '$kategori'";
+    $q_check     = mysqli_query($koneksi, $sql_check);
+    $r_check     = mysqli_fetch_assoc($q_check);
+
+    if ($r_check['count'] > 0) {
+        $error = "Kategori sudah ada, silakan masukkan kategori lain";
     } else {
-        $error = "Silakan masukkan semua data";
+        if ($kategori && $persentasi) {
+            if ($op == 'edit') { //untuk update
+                $sql1       = "update kategori_kelayakan set kategori='$kategori',persentasi = '$persentasi' where id = $id";
+                $q1         = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses = "Data berhasil diupdate";
+                } else {
+                    $error  = "Data gagal diupdate";
+                }
+            } else { //untuk insert
+                $sql1   = "insert into kategori_kelayakan(kategori,persentasi) values ('$kategori','$persentasi')";
+                $q1     = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses     = "Berhasil memasukkan data baru";
+                } else {
+                    $error      = "Gagal memasukkan data";
+                }
+            }
+        } else {
+            $error = "Silakan masukkan semua data";
+        }
     }
 }
 ?>

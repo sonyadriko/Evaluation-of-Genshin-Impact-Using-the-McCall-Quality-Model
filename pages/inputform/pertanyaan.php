@@ -43,27 +43,35 @@ if ($op == 'edit') {
 if (isset($_POST['simpan'])) { //untuk create
     $sub_indikator = $_POST['sub_indikator'];
     $pertanyaan  = $_POST['pertanyaan'];
-    
-    if ($sub_indikator && $pertanyaan) {
-        if ($op == 'edit') { //untuk update
-            $sql1       = "update pertanyaan set sub_indikator='$sub_indikator',pertanyaan = '$pertanyaan' where id = $id";
-            $q1         = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses = "Data berhasil diupdate";
-            } else {
-                $error  = "Data gagal diupdate";
-            }
-        } else { //untuk insert
-            $sql1   = "insert into pertanyaan(sub_indikator,pertanyaan) values ('$sub_indikator','$pertanyaan')";
-            $q1     = mysqli_query($koneksi, $sql1);
-            if ($q1) {
-                $sukses     = "Berhasil memasukkan data baru";
-            } else {
-                $error      = "Gagal memasukkan data";
-            }
-        }
+
+    $sql_check   = "SELECT COUNT(*) as count FROM pertanyaan WHERE pertanyaan = '$pertanyaan'";
+    $q_check     = mysqli_query($koneksi, $sql_check);
+    $r_check     = mysqli_fetch_assoc($q_check);
+
+    if ($r_check['count'] > 0) {
+        $error = "Pertanyaan sudah ada, silakan masukkan pertanyaan lain";
     } else {
-        $error = "Silakan masukkan semua data";
+        if ($sub_indikator && $pertanyaan) {
+            if ($op == 'edit') { //untuk update
+                $sql1       = "update pertanyaan set sub_indikator='$sub_indikator',pertanyaan = '$pertanyaan' where id = $id";
+                $q1         = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses = "Data berhasil diupdate";
+                } else {
+                    $error  = "Data gagal diupdate";
+                }
+            } else { //untuk insert
+                $sql1   = "insert into pertanyaan(sub_indikator,pertanyaan) values ('$sub_indikator','$pertanyaan')";
+                $q1     = mysqli_query($koneksi, $sql1);
+                if ($q1) {
+                    $sukses     = "Berhasil memasukkan data baru";
+                } else {
+                    $error      = "Gagal memasukkan data";
+                }
+            }
+        } else {
+            $error = "Silakan masukkan semua data";
+        }
     }
 }
 ?>
