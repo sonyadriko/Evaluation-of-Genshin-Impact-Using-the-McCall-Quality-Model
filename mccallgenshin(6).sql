@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 06:36 PM
+-- Generation Time: Feb 27, 2024 at 05:20 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -628,7 +628,6 @@ INSERT INTO `hasil_form` (`id_sesi`, `id_pertanyaan`, `hasil_jawaban`) VALUES
 
 CREATE TABLE `indikator` (
   `id` int(11) NOT NULL,
-  `id_indikator` varchar(5) NOT NULL,
   `indikator` varchar(25) NOT NULL,
   `bobot` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -637,12 +636,12 @@ CREATE TABLE `indikator` (
 -- Dumping data for table `indikator`
 --
 
-INSERT INTO `indikator` (`id`, `id_indikator`, `indikator`, `bobot`) VALUES
-(1, 'IND01', 'Correctness', 0.4),
-(2, 'IND02', 'Reliability', 0.3),
-(3, 'IND03', 'Efficiency', 0.2),
-(4, 'IND04', 'Integrity', 0.1),
-(5, 'IND05', 'Usability', 0.3);
+INSERT INTO `indikator` (`id`, `indikator`, `bobot`) VALUES
+(1, 'Correctness', 0.4),
+(2, 'Reliability', 0.3),
+(3, 'Efficiency', 0.2),
+(4, 'Integrity', 0.1),
+(5, 'Usability', 0.3);
 
 -- --------------------------------------------------------
 
@@ -652,7 +651,6 @@ INSERT INTO `indikator` (`id`, `id_indikator`, `indikator`, `bobot`) VALUES
 
 CREATE TABLE `kategori_kelayakan` (
   `id` int(11) NOT NULL,
-  `id_kk` varchar(5) NOT NULL,
   `kategori` varchar(25) NOT NULL,
   `persentasi` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -661,12 +659,12 @@ CREATE TABLE `kategori_kelayakan` (
 -- Dumping data for table `kategori_kelayakan`
 --
 
-INSERT INTO `kategori_kelayakan` (`id`, `id_kk`, `kategori`, `persentasi`) VALUES
-(1, 'KK05', 'Sangat Baik', '81% - 100%'),
-(2, 'KK04', 'Baik', '61% - 80%'),
-(3, 'KK03', 'Cukup Baik', '41% - 60%'),
-(4, 'KK02', 'Tidak Baik', '21% - 40%'),
-(6, 'KK01', 'Sangat Tidak Baik', '0% - 20%');
+INSERT INTO `kategori_kelayakan` (`id`, `kategori`, `persentasi`) VALUES
+(1, 'Sangat Baik', '81% - 100%'),
+(2, 'Baik', '61% - 80%'),
+(3, 'Cukup Baik', '41% - 60%'),
+(4, 'Tidak Baik', '21% - 40%'),
+(6, 'Sangat Tidak Baik', '0% - 20%');
 
 -- --------------------------------------------------------
 
@@ -687,7 +685,7 @@ CREATE TABLE `pertanyaan` (
 --
 
 INSERT INTO `pertanyaan` (`id`, `sub_indikator`, `pertanyaan`, `bobot_pertanyaan`, `average`) VALUES
-(0, 'Completeness ', 'Informasi lengkap dan jelas dalam game membantu pemain terinformasi tentang perubahan dan pembaruan.', 0.2, 3.125),
+(0, 'Completeness', 'Informasi lengkap dan jelas dalam game membantu pemain terinformasi tentang perubahan dan pembaruan.', 0.2, 3.125),
 (1, 'Completeness ', 'Genshin Impact memiliki beragam karakter dengan elemen dan keterampilan unik yang menciptakan kelengkapan dalam opsi pemilihan karakter.', 0.2, 3.125),
 (2, 'Completeness ', 'Genshin Impact memiliki sistem elemen dan reaksi elemen yang kompleks.', 0.2, 4.25),
 (3, 'Completeness ', 'Para player dapat menikmati beragam aktivitas seperti eksplorasi, pertempuran, memasak, crafting dan teka-teki.', 0.2, 3.875),
@@ -766,8 +764,6 @@ INSERT INTO `pertanyaan` (`id`, `sub_indikator`, `pertanyaan`, `bobot_pertanyaan
 
 CREATE TABLE `sub_indikator` (
   `id` int(11) NOT NULL,
-  `id_sub` varchar(5) NOT NULL,
-  `id_indikator` varchar(10) NOT NULL,
   `indikator` varchar(15) NOT NULL,
   `sub_indikator` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -776,19 +772,19 @@ CREATE TABLE `sub_indikator` (
 -- Dumping data for table `sub_indikator`
 --
 
-INSERT INTO `sub_indikator` (`id`, `id_sub`, `id_indikator`, `indikator`, `sub_indikator`) VALUES
-(1, 'SUB01', 'ID1', 'Correctness', 'Completeness'),
-(2, 'SUB11', 'ID5', 'Usability', 'Operability'),
-(3, 'SUB12', 'ID5', 'Usability', 'Training'),
-(4, 'SUB02', 'ID1', 'Correctness', 'Consistency'),
-(5, 'SUB03', 'ID1', 'Correctness', 'Treaceability'),
-(6, 'SUB04', 'ID2', 'Reliability', 'Accuracy'),
-(7, 'SUB05', 'ID2', 'Reliability', 'Error Tolerancy'),
-(8, 'SUB06', 'ID2', 'Reliability', 'Simplicity'),
-(9, 'SUB07', 'ID3', 'Efficiency', 'Execution Efficiency'),
-(10, 'SUB09', 'ID4', 'Integrity', 'Security'),
-(11, 'SUB10', 'ID5', 'Usability', 'Communicativeness'),
-(12, 'SUB08', 'ID3', 'Efficiency', 'Conciseness');
+INSERT INTO `sub_indikator` (`id`, `indikator`, `sub_indikator`) VALUES
+(1, 'Correctness', 'Completeness'),
+(2, 'Usability', 'Operability'),
+(3, 'Usability', 'Training'),
+(4, 'Correctness', 'Consistency'),
+(5, 'Correctness', 'Treaceability'),
+(6, 'Reliability', 'Accuracy'),
+(7, 'Reliability', 'Error Tolerancy'),
+(8, 'Reliability', 'Simplicity'),
+(9, 'Efficiency', 'Execution Efficiency'),
+(10, 'Integrity', 'Security'),
+(11, 'Usability', 'Communicativeness'),
+(12, 'Efficiency', 'Conciseness');
 
 -- --------------------------------------------------------
 
@@ -798,7 +794,6 @@ INSERT INTO `sub_indikator` (`id`, `id_sub`, `id_indikator`, `indikator`, `sub_i
 
 CREATE TABLE `tbl_bobot` (
   `id` int(11) NOT NULL,
-  `id_bobot` varchar(5) NOT NULL,
   `bobot` float NOT NULL,
   `keterangan` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -807,12 +802,12 @@ CREATE TABLE `tbl_bobot` (
 -- Dumping data for table `tbl_bobot`
 --
 
-INSERT INTO `tbl_bobot` (`id`, `id_bobot`, `bobot`, `keterangan`) VALUES
-(1, 'BBT01', 0.1, 'Sangat Tidak Penting'),
-(2, 'BBT02', 0.2, 'Tidak Penting'),
-(3, 'BBT04', 0.4, 'Penting'),
-(4, 'BBT05', 0.5, 'Sangat Penting'),
-(5, 'BBT03', 0.3, 'Cukup Penting');
+INSERT INTO `tbl_bobot` (`id`, `bobot`, `keterangan`) VALUES
+(1, 0.1, 'Sangat Tidak Penting'),
+(2, 0.2, 'Tidak Penting'),
+(3, 0.4, 'Penting'),
+(4, 0.5, 'Sangat Penting'),
+(5, 0.3, 'Cukup Penting');
 
 --
 -- Indexes for dumped tables
@@ -874,13 +869,13 @@ ALTER TABLE `indikator`
 -- AUTO_INCREMENT for table `kategori_kelayakan`
 --
 ALTER TABLE `kategori_kelayakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT for table `sub_indikator`
