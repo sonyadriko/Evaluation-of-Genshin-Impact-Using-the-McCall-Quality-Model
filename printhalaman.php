@@ -41,6 +41,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -54,6 +55,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -63,6 +65,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -78,6 +81,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -91,6 +95,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -100,6 +105,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -115,6 +121,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -128,6 +135,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -137,6 +145,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -177,6 +186,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -190,6 +200,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -199,6 +210,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -252,6 +264,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -265,6 +278,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -274,6 +288,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -318,6 +333,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -331,6 +347,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -339,6 +356,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -353,6 +371,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -366,6 +385,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -374,6 +394,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -418,6 +439,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -431,6 +453,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -439,6 +462,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -483,6 +507,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -496,6 +521,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -504,6 +530,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -518,6 +545,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -531,6 +559,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -539,6 +568,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -553,6 +583,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Indikator</th>
+                                <th scope="col">Pertanyaan</th>
                                 <th scope="col">Hasil</th>
                             </tr>
                         </thead>
@@ -566,6 +597,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             while ($r2 = mysqli_fetch_array($q2)) {
                                 $indikator = $r2['sub_indikator'];
                                 $bobot_pertanyaan   = $r2['bobot_pertanyaan'];
+                                $pertanyaan = $r2['pertanyaan'];
                                 $hasiljawaban = $r2['average'];
                                 $hasilbaru1 = $hasiljawaban*$bobot_pertanyaan;
                                 $hasilbaru1_rounded = number_format($hasilbaru1, 2);
@@ -574,6 +606,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                             <tr>
                                 <th scope="row"><?php echo $urut++ ?></th>
                                 <td scope="row"><?php echo $indikator ?></td>
+                                <td scope="row"><?php echo $pertanyaan ?></td>
                                 <td scope="row"><?php echo $hasilbaru1_rounded ?></td>
                             </tr>
                             <?php
@@ -615,7 +648,7 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         $hasilakhir2 = ($hasilakhir/5) * 100;
                         $hasilakhir2 = round($hasilakhir2,2);
                     ?>
-                    <p style="font-weight:bold; font-size:20px;" class="mt-4"> Hasil Akhir: <?php echo $hasilakhir2 ?></p>
+                    <p style="font-weight:bold; font-size:20px;" class="mt-4"> Hasil Akhir: <?php echo $hasilakhir2 ?>%</p>
 <?php
 $hasilstatus = "";
                     if ($hasilakhir2 >= 80 && $hasilakhir2hasilakhir2 <= 100) {
