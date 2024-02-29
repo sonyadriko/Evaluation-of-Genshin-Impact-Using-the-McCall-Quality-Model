@@ -1,4 +1,5 @@
 <style>
+
     .cetak-link {
         text-decoration: none; /* Menghilangkan garis bawah tautan */
         color: #007bff; /* Warna tautan (biru) */
@@ -54,15 +55,18 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                 Hasil Hitung
             </div>
             <div class="card-body">
+                <h3>Correctness</h3>
+                <h5>Sub Indikator Completeness</h5>
                   <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
-                            </tr>
-                        </thead>
+                  <thead>
+                    <tr>
+                        <th scope="col" style="width: 5%">No.</th>
+                        <th scope="col" style="width: 10%">Sub Indikator</th>
+                        <th scope="col" style="width: 65%">Pertanyaan</th>
+                        <th scope="col" style="width: 10%">Hasil</th>
+                    </tr>
+                </thead>
+
                         <tbody>
                         <?php
                             $sql2 = "SELECT * FROM pertanyaan 
@@ -93,14 +97,14 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Completeness: <?php echo $totalHasil1 ?> </p>
                     <hr>
-
+                    <h5>Sub Indikator Consistency</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,14 +138,14 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     <p style="font-weight:bold;" class="mt-4"> Hasil Consistency: <?php echo $totalHasil2 ?> </p>
                     <hr>
 
-
+                    <h5>Sub Indikator Tracebility</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -176,39 +180,64 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     <hr>
 
                     <?php
-                        $ketemu = ($totalHasil1 + $totalHasil2 + $totalHasil3) / 3;
-                        $hasilketemu = min($ketemu, 5);
-                        $hasilketemu = number_format($hasilketemu, 2);
-                        $nilaidapat = ($hasilketemu / 5) * 100;
-                        $roundedHasilnya = round($nilaidapat);
+                    $ketemu = ($totalHasil1 + $totalHasil2 + $totalHasil3) / 3;
+                    $hasilketemu = min($ketemu, 5);
+                    $hasilketemu = number_format($hasilketemu, 2);
+                    $nilaidapat = ($hasilketemu / 5) * 100;
+                    $roundedHasilnya = round($nilaidapat);
 
-                        if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
-                            $k_corec = "Sangat Baik";
-                        } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
-                            $k_corec = "Baik";
-                        } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
-                            $k_corec = "Cukup Baik";
-                        } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
-                            $k_corec = "Tidak Baik";
-                        } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
-                            $k_corec = "Sangat Tidak Baik";
-                        } else {
-                            $k_corec = "";
-                        }
-  
+                    if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
+                        $k_corec = "Sangat Baik";
+                        $progressColor = "#5bc0de"; // Blue
+                    } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
+                        $k_corec = "Baik";
+                        $progressColor = "#28a745"; // Green
+                    } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
+                        $k_corec = "Cukup Baik";
+                        $progressColor = "#ffc107"; // Yellow
+                    } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
+                        $k_corec = "Tidak Baik";
+                        $progressColor = "#fd7e14"; // Orange
+                    } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
+                        $k_corec = "Sangat Tidak Baik";
+                        $progressColor = "#dc3545"; // Red
+                    } else {
+                        $k_corec = "";
+                        $progressColor = "";
+                    }
                     ?>
-                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Nilai Correctness: <?php echo $hasilketemu ?> </p>
-                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Presentase Correctness: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+
+                    <!-- Correctness Value -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;">Nilai Correctness: <?php echo $hasilketemu ?></p>
+                    </div>
+
+                    <!-- Correctness Information -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;"><?php echo $k_corec ?></p>
+                    </div>
+
+                    <!-- Enhanced Progress bar -->
+                    <div class="progress" style="height: 25px; border-radius: 50px; overflow: hidden; box-shadow: 0 0 10px rgba(209, 219, 231, 0.7);">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: <?php echo $roundedHasilnya; ?>%; border-radius: 50px; position: relative; background-color: <?php echo $progressColor; ?>;">
+                            <div class="progress-value" style="position: absolute; right: 5%; top: 12px; font-size: 14px; font-weight: bold; color: #fff; letter-spacing: 2px; white-space: nowrap;">
+                                <?php echo $roundedHasilnya; ?>%
+                            </div>
+                        </div>
+                    </div>
+
                     <hr>
 
+
+                <h3>Reliability</h3>
+                <h5>Sub Indikator Error tolerance</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -241,14 +270,15 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Error tolerance: <?php echo $totalHasil4 ?> </p>
                     <hr>
-
+                    
+                    <h5>Sub Indikator Accuracy</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -281,14 +311,15 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Accuracy: <?php echo $totalHasil5 ?> </p>
                     <hr>
-
+                    
+                    <h5>Sub Indikator Simplicity</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -331,16 +362,22 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                         if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
                             $k_corec = "Sangat Baik";
+                            $progressColor = "#5bc0de"; // Blue
                         } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
                             $k_corec = "Baik";
+                            $progressColor = "#28a745"; // Green
                         } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
                             $k_corec = "Cukup Baik";
+                            $progressColor = "#ffc107"; // Yellow
                         } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
                             $k_corec = "Tidak Baik";
+                            $progressColor = "#fd7e14"; // Orange
                         } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
                             $k_corec = "Sangat Tidak Baik";
+                            $progressColor = "#dc3545"; // Red
                         } else {
                             $k_corec = "";
+                            $progressColor = "";
                         }
 
                         // echo "Presentase Correctness: $roundedHasilnya\n";
@@ -348,18 +385,35 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         // echo "Kategori Kelayakan: $k_corec\n";
                         
                     ?>
-                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Nilai Reliability: <?php echo $hasilketemu2 ?> </p>
-                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Presentase Reliability: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold; text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <!-- Correctness Value -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;">Nilai Reliability: <?php echo $hasilketemu2 ?> </p>
+                    </div>
+
+                    <!-- Correctness Information -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;"><?php echo $k_corec ?></p>
+                    </div>
+
+                    <!-- Enhanced Progress bar -->
+                    <div class="progress" style="height: 25px; border-radius: 50px; overflow: hidden; box-shadow: 0 0 10px rgba(209, 219, 231, 0.7);">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: <?php echo $roundedHasilnya; ?>%; border-radius: 50px; position: relative; background-color: <?php echo $progressColor; ?>;">
+                            <div class="progress-value" style="position: absolute; right: 5%; top: 12px; font-size: 14px; font-weight: bold; color: #fff; letter-spacing: 2px; white-space: nowrap;">
+                                <?php echo $roundedHasilnya; ?>%
+                            </div>
+                        </div>
+                    </div>
                     <hr>
 
+                <h3>Efficiency</h3>
+                <h5>Sub Indikator Conciseness</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -391,14 +445,15 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Conciseness: <?php echo $totalHasil7 ?> </p>
                     <hr>
-
+                    
+                    <h5>Sub Indikator Exection Efficiency</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -432,43 +487,62 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     <hr>
 
                     <?php
-                        $ketemu = ($totalHasil7 + $totalHasil8) / 2;
-                        $hasilketemu3 = min($ketemu, 5);
-                        $hasilketemu3 = number_format($hasilketemu3, 2);
-                        $nilaidapat = ($hasilketemu3 / 5) * 100;
-                        $roundedHasilnya = round($nilaidapat);
+                    $ketemu = ($totalHasil7 + $totalHasil8) / 2;
+                    $hasilketemu3 = min($ketemu, 5);
+                    $hasilketemu3 = number_format($hasilketemu3, 2);
+                    $nilaidapat = ($hasilketemu3 / 5) * 100;
+                    $roundedHasilnya = round($nilaidapat);
 
-                        if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
-                            $k_corec = "Sangat Baik";
-                        } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
-                            $k_corec = "Baik";
-                        } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
-                            $k_corec = "Cukup Baik";
-                        } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
-                            $k_corec = "Tidak Baik";
-                        } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
-                            $k_corec = "Sangat Tidak Baik";
-                        } else {
-                            $k_corec = "";
-                        }
-
-                        // echo "Presentase Efficiency: $roundedHasilnya\n";
-                        // echo "\n"; 
-                        // echo "Kategori Kelayakan: $k_corec\n";
-                        
+                    if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
+                        $k_corec = "Sangat Baik";
+                        $progressColor = "#5bc0de"; // Blue
+                    } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
+                        $k_corec = "Baik";
+                        $progressColor = "#28a745"; // Green
+                    } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
+                        $k_corec = "Cukup Baik";
+                        $progressColor = "#ffc107"; // Yellow
+                    } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
+                        $k_corec = "Tidak Baik";
+                        $progressColor = "#fd7e14"; // Orange
+                    } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
+                        $k_corec = "Sangat Tidak Baik";
+                        $progressColor = "#dc3545"; // Red
+                    } else {
+                        $k_corec = "";
+                        $progressColor = "";
+                    }
                     ?>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Nilai Efficiency: <?php echo $hasilketemu3 ?> </p>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Presentase Efficiency: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+
+                    <!-- Correctness Value -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;">Nilai Efficiency: <?php echo $hasilketemu3 ?> </p>
+                    </div>
+
+                    <!-- Correctness Information -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;"><?php echo $k_corec ?></p>
+                    </div>
+
+                    <!-- Enhanced Progress bar -->
+                    <div class="progress" style="height: 25px; border-radius: 50px; overflow: hidden; box-shadow: 0 0 10px rgba(209, 219, 231, 0.7);">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: <?php echo $roundedHasilnya; ?>%; border-radius: 50px; position: relative; background-color: <?php echo $progressColor; ?>;">
+                            <div class="progress-value" style="position: absolute; right: 5%; top: 12px; font-size: 14px; font-weight: bold; color: #fff; letter-spacing: 2px; white-space: nowrap;">
+                                <?php echo $roundedHasilnya; ?>%
+                            </div>
+                        </div>
+                    </div>
                     <hr>
 
+                    <h3>Integrity</h3>
+                    <h5>Sub Indikator Security</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -510,16 +584,22 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                         if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
                             $k_corec = "Sangat Baik";
+                            $progressColor = "#5bc0de"; // Blue
                         } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
                             $k_corec = "Baik";
+                            $progressColor = "#28a745"; // Green
                         } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
                             $k_corec = "Cukup Baik";
+                            $progressColor = "#ffc107"; // Yellow
                         } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
                             $k_corec = "Tidak Baik";
+                            $progressColor = "#fd7e14"; // Orange
                         } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
                             $k_corec = "Sangat Tidak Baik";
+                            $progressColor = "#dc3545"; // Red
                         } else {
                             $k_corec = "";
+                            $progressColor = "";
                         }
 
                         // echo "Presentase Correctness: $roundedHasilnya\n";
@@ -527,18 +607,35 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         // echo "Kategori Kelayakan: $k_corec\n";
                         
                     ?>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Nilai Integrity: <?php echo $hasilketemu4 ?> </p>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Presentase Integrity: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <!-- Correctness Value -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;">Nilai Integrity: <?php echo $hasilketemu4 ?> </p>
+                    </div>
+
+                    <!-- Correctness Information -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;"><?php echo $k_corec ?></p>
+                    </div>
+
+                    <!-- Enhanced Progress bar -->
+                    <div class="progress" style="height: 25px; border-radius: 50px; overflow: hidden; box-shadow: 0 0 10px rgba(209, 219, 231, 0.7);">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: <?php echo $roundedHasilnya; ?>%; border-radius: 50px; position: relative; background-color: <?php echo $progressColor; ?>;">
+                            <div class="progress-value" style="position: absolute; right: 5%; top: 12px; font-size: 14px; font-weight: bold; color: #fff; letter-spacing: 2px; white-space: nowrap;">
+                                <?php echo $roundedHasilnya; ?>%
+                            </div>
+                        </div>
+                    </div>
                     <hr>
 
+                    <h3>Usability</h3>
+                    <h5>Sub Indikator Operability</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -569,14 +666,16 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                         </tbody>
                     </table>
                     <p style="font-weight:bold;" class="mt-4"> Hasil Operability: <?php echo $totalHasil10 ?> </p>
+                    <hr>
 
+                    <h5>Sub Indikator Training</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -609,13 +708,14 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
                     <p style="font-weight:bold;" class="mt-4"> Hasil Training: <?php echo $totalHasil11 ?> </p>
                     <hr>
 
+                    <h5>Sub Indikator Communicativeness</h5>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Indikator</th>
-                                <th scope="col">Pertanyaan</th>
-                                <th scope="col">Hasil</th>
+                                <th scope="col" style="width: 5%">No.</th>
+                                <th scope="col" style="width: 10%">Sub Indikator</th>
+                                <th scope="col" style="width: 65%">Pertanyaan</th>
+                                <th scope="col" style="width: 10%">Hasil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -657,55 +757,101 @@ $koneksi    = mysqli_connect('localhost', 'root', '', 'mccallgenshin');
 
                         if ($roundedHasilnya >= 81 && $roundedHasilnya <= 100) {
                             $k_corec = "Sangat Baik";
+                            $progressColor = "#5bc0de"; // Blue
                         } elseif ($roundedHasilnya >= 61 && $roundedHasilnya <= 80) {
                             $k_corec = "Baik";
+                            $progressColor = "#28a745"; // Green
                         } elseif ($roundedHasilnya >= 41 && $roundedHasilnya <= 60) {
                             $k_corec = "Cukup Baik";
+                            $progressColor = "#ffc107"; // Yellow
                         } elseif ($roundedHasilnya >= 21 && $roundedHasilnya <= 40) {
                             $k_corec = "Tidak Baik";
+                            $progressColor = "#fd7e14"; // Orange
                         } elseif ($roundedHasilnya >= 0 && $roundedHasilnya <= 20) {
                             $k_corec = "Sangat Tidak Baik";
+                            $progressColor = "#dc3545"; // Red
                         } else {
                             $k_corec = "";
+                            $progressColor = "";
                         }
                         
                     ?>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Nilai Usability: <?php echo $hasilketemu5 ?> </p>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Presentase Usability: <?php echo $roundedHasilnya ?>%</p>
-                    <p style="font-weight:bold;text-align:center;" class="mt-4"> Kategori Kelayakan: <?php echo $k_corec ?></p>
+                    <!-- Correctness Value -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;">Nilai Usability: <?php echo $hasilketemu5 ?> </p>
+                    </div>
+
+                    <!-- Correctness Information -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;"><?php echo $k_corec ?></p>
+                    </div>
+
+                    <!-- Enhanced Progress bar -->
+                    <div class="progress" style="height: 25px; border-radius: 50px; overflow: hidden; box-shadow: 0 0 10px rgba(209, 219, 231, 0.7);">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: <?php echo $roundedHasilnya; ?>%; border-radius: 50px; position: relative; background-color: <?php echo $progressColor; ?>;">
+                            <div class="progress-value" style="position: absolute; right: 5%; top: 12px; font-size: 14px; font-weight: bold; color: #fff; letter-spacing: 2px; white-space: nowrap;">
+                                <?php echo $roundedHasilnya; ?>%
+                            </div>
+                        </div>
+                    </div>
                     <hr>
+
 
                     <?php 
                     
                         $hasilakhir = ((($hasilketemu) * 0.4) + (($hasilketemu2) * 0.3) + (($hasilketemu3) * 0.2) + (($hasilketemu4) * 0.1) + (($hasilketemu5) * 0.3) );
+                        $hasilakhir = round($hasilakhir,2);
                         $hasilakhir2 = ($hasilakhir/5) * 100;
-                        $hasilakhir2 = round($hasilakhir2,2);
+                        $hasilakhir2 = round($hasilakhir2);
                     ?>
-                    <p style="font-weight:bold; font-size:20px; text-align:center;" class="mt-4"> Hasil Akhir: <?php echo $hasilakhir2 ?> %</p>
-<?php
-$hasilstatus = "";
-                    if ($hasilakhir2 >= 80 && $hasilakhir2hasilakhir2 <= 100) {
-    $hasilstatus = "Sangat Baik";
-} else if ($hasilakhir2 >= 61 && $hasilakhir2 <= 80) {
-    $hasilstatus = "Baik";
-} else if ($hasilakhir2 >= 41 && $hasilakhir2 <= 60) {
-    $hasilstatus = "Cukup Baik";
-} else if ($hasilakhir2 >= 21 && $hasilakhir2 <= 40) {
-    $hasilstatus = "Tidak Baik";
-} else if ($hasilakhir2 >= 0 && $hasilakhir2 <= 20) {
-    $hasilstatus = "Sangat Tidak Baik";
-} else {
-    $hasilstatus = "";
-}
 
-?>
-<p style="font-weight:bold; font-size:20px; text-align:center;" class="mt-4"> Hasil Status: <?php echo $hasilstatus ?></p>
-<hr>
-<a href="printhalaman.php" target="_blank" class="cetak-link">Cetak</a>
+                    <?php
+                    $hasilstatus = "";
+                    if ($hasilakhir2 >= 81 && $hasilakhir2 <= 100) {
+                        $hasilstatus = "Sangat Baik";
+                        $progressColor = "#5bc0de"; // Blue
+                    } elseif ($hasilakhir2 >= 61 && $hasilakhir2 <= 80) {
+                        $hasilstatus = "Baik";
+                        $progressColor = "#28a745"; // Green
+                    } elseif ($hasilakhir2 >= 41 && $hasilakhir2 <= 60) {
+                        $hasilstatus = "Cukup Baik";
+                        $progressColor = "#ffc107"; // Yellow
+                    } elseif ($hasilakhir2 >= 21 && $hasilakhir2 <= 40) {
+                        $hasilstatus = "Tidak Baik";
+                        $progressColor = "#fd7e14"; // Orange
+                    } elseif ($hasilakhir2 >= 0 && $hasilakhir2 <= 20) {
+                        $hasilstatus = "Sangat Tidak Baik";
+                        $progressColor = "#dc3545"; // Red
+                    } else {
+                        $hasilstatus = "";
+                        $progressColor = "";
+                    }
+                    
+                ?>
+                
+                    <!-- Value -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;">Hasil Akhir: <?php echo $hasilakhir; ?> </p>
+                    </div>
 
+                    <!-- Information -->
+                    <div class="text-center mt-4">
+                        <p style="font-weight:bold;"><?php echo $hasilstatus; ?></p>
+                    </div>
 
-
-            </div>
-        </div>
-    </div>
-</body>
+                    <!-- Enhanced Progress bar -->
+                    <div class="progress" style="height: 25px; border-radius: 50px; overflow: hidden; box-shadow: 0 0 10px rgba(209, 219, 231, 0.7);">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: <?php echo $hasilakhir2; ?>%; border-radius: 50px; position: relative; background-color: <?php echo $progressColor; ?>;">
+                            <div class="progress-value" style="position: absolute; right: 5%; top: 12px; font-size: 14px; font-weight: bold; color: #fff; letter-spacing: 2px; white-space: nowrap;">
+                                <?php echo $hasilakhir2; ?>%
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <p>Dari perhitungan diatas didapatkan nilai <?php echo $hasilakhir; ?>, dengan presentase <?php echo $hasilakhir2; ?>% yang artinya Genshin Impact kategori yang <?php echo $hasilstatus; ?> </p>
+                    <hr>
+                    <a href="printhalaman.php" target="_blank" class="cetak-link">Cetak</a>
+                            </div>
+                        </div>
+                    </div>
+                </body>
