@@ -16,7 +16,8 @@ Generating comprehensive reports that highlight strengths and areas for improvem
 Comparison and Benchmarking:
 
 Comparing the quality assessment results of Genshin Impact with other similar games to provide benchmarking data.
-Technical Stack:
+
+<h2>Technical Stack:</h2>
 
 Frontend:
 
