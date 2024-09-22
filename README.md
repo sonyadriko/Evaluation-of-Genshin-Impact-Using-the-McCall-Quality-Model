@@ -1,8 +1,8 @@
-Project Description:
+<h2>Project Description: </h2>
 
 This project involves evaluating the popular game Genshin Impact using the McCall Quality Model. The McCall model focuses on software quality assessment through various factors such as correctness, reliability, efficiency, integrity, usability, maintainability, and flexibility. The goal is to systematically analyze and improve the overall quality of the game.
 
-Key Features:
+<h2>Key Features:</h2>
 
 Quality Factors Assessment:
 
